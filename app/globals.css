@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-serif: var(--font-playfair-display), serif;
+  --font-sans: var(--font-lato), sans-serif;
+  --font-script: var(--font-great-vibes), cursive;
+
+  --color-primary-50: #f6f6f6;
+  --color-primary-100: #e7e7e7;
+  --color-primary-200: #d1d1d1;
+  --color-primary-300: #b0b0b0;
+  --color-primary-400: #888888;
+  --color-primary-500: #6d6d6d;
+  --color-primary-600: #5d5d5d;
+  --color-primary-700: #4f4f4f;
+  --color-primary-800: #454545;
+  --color-primary-900: #3d3d3d;
+  --color-primary-950: #0a0a0a;
+
+  --color-accent-50: #fbf9f1;
+  --color-accent-100: #f5f0db;
+  --color-accent-200: #ebdcb5;
+  --color-accent-300: #dec086;
+  --color-accent-400: #cea55d;
+  --color-accent-500: #c28e43;
+  --color-accent-600: #a77135;
+  --color-accent-700: #86562d;
+  --color-accent-800: #6f462a;
+  --color-accent-900: #5b3a25;
+  --color-accent-950: #331e12;
+
+  --color-paper: #f3f3f3;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply box-border;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-primary-950 text-paper font-sans antialiased overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif leading-tight text-accent-300 font-bold;
+  }
+
+  h1 {
+    @apply text-5xl md:text-7xl lg:text-8xl uppercase tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-5xl tracking-wide border-b border-accent-800 pb-4 mb-6;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl text-accent-200;
+  }
+
+  p {
+    @apply text-lg leading-relaxed text-gray-300 font-light max-w-prose;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-accent-500 text-primary-950 font-bold uppercase tracking-widest text-sm hover:bg-accent-400 transition-colors duration-300;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 border border-accent-500 text-accent-500 font-bold uppercase tracking-widest text-sm hover:bg-accent-500 hover:text-primary-950 transition-colors duration-300;
+  }
 }
