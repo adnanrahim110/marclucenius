@@ -4,25 +4,21 @@ import { useEffect, useState } from "react";
 export default function HomeReviewsSection() {
   const reviews = [
     {
-      text: "A breath of fresh air for my soul. Marc's words cut through the noise and reminded me what actually matters.",
-      author: "Sarah J.",
-      role: "Entrepreneur",
+      text: "“Finally, a book that doesn’t shame my drive but redeems it.",
+      author: "Jonathan Ryan",
     },
     {
-      text: "Finally, a perspective on rest that isn't just about taking naps. This is about a deep, spiritual realignment.",
-      author: "David M.",
-      role: "Pastor",
+      text: "Loved the book!!! I felt seen on every page.",
+      author: "Sebastian Morgan",
     },
     {
-      text: "I read this book in one sitting and then immediately started it again. Essential reading for our generation.",
-      author: "Emily R.",
-      role: "Designer",
+      text: "A must-have piece of literature for sure! This is the book I needed ten years ago, and still need today.",
+      author: "Emily Rogers",
     },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Auto-advance
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((current) => (current + 1) % reviews.length);
@@ -34,14 +30,14 @@ export default function HomeReviewsSection() {
     <section className="py-24 bg-primary-950 border-t border-primary-900 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
         <p className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-accent-500 mb-12">
-          What People Are Saying
+          What Readers Are Saying?
         </p>
 
-        <div className="relative min-h-[300px] flex items-center justify-center">
+        <div className="relative min-h-75 flex items-center justify-center">
           {reviews.map((review, index) => (
             <div
               key={index}
-              className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-1000 ease-in-out transform ${
+              className={`absolute bg-primary-950 inset-0 flex flex-col items-center justify-center transition-all duration-1000 ease-in-out transform ${
                 index === activeIndex
                   ? "opacity-100 translate-y-0 scale-100"
                   : "opacity-0 translate-y-8 scale-95 pointer-events-none"
@@ -64,15 +60,11 @@ export default function HomeReviewsSection() {
                 <cite className="text-accent-400 font-bold tracking-widest text-sm not-italic uppercase">
                   {review.author}
                 </cite>
-                <span className="text-gray-500 text-xs uppercase tracking-wider">
-                  {review.role}
-                </span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Indicators */}
         <div className="flex justify-center space-x-3 mt-12">
           {reviews.map((_, index) => (
             <button

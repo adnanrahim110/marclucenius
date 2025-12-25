@@ -5,18 +5,15 @@ export default function Footer() {
     <footer className="bg-primary-950 border-t border-primary-800 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-          {/* Brand Column */}
           <div className="col-span-1 md:col-span-1">
             <h3 className="text-2xl font-serif font-bold text-accent-300 uppercase tracking-widest mb-6">
               Marc Lucenius
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Pastor, author, and coach helping ambitious leaders find rest in
-              the way of Jesus.
+              Marc Lucenius is a pastor and former high-achieving executive who
+              burned out chasing success.
             </p>
-            {/* Social Icons Placeholder */}
             <div className="flex space-x-4">
-              {/* Replace with actual icons later */}
               <a
                 href="#"
                 className="text-gray-500 hover:text-accent-400 transition-colors"
@@ -38,7 +35,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation Column */}
           <div className="col-span-1">
             <h4 className="text-sm font-bold text-accent-500 uppercase tracking-widest mb-6">
               Explore
@@ -79,7 +75,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter Column */}
           <div className="col-span-1">
             <h4 className="text-sm font-bold text-accent-500 uppercase tracking-widest mb-6">
               Stay Connected

@@ -1,36 +1,34 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function HomeAuthorSection() {
   return (
     <section className="py-24 bg-primary-950 relative overflow-hidden">
-      {/* Background Accent */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-900/10 rounded-full blur-[120px] transform translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 size-150 bg-accent-900/10 rounded-full blur-[120px] transform translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-        {/* Text Content */}
         <div className="order-2 lg:order-1 space-y-8">
           <div>
-            <p className="font-script text-accent-400 text-3xl md:text-4xl mb-4 transform -rotate-2">
-              Meet the Author
+            <p className="font-script text-accent-400 text-3xl md:text-4xl mb-4">
+              Who Wrote This Book?
             </p>
             <h2 className="text-4xl md:text-5xl font-serif text-white font-bold leading-tight">
-              Marc Lucenius
+              Meet Marc Lucenius
             </h2>
             <div className="w-24 h-1 bg-accent-500 mt-6 opacity-60"></div>
           </div>
 
           <div className="space-y-6 text-gray-300 text-lg font-sans leading-relaxed">
             <p>
-              Marc is a pastor, speaker, and author who knows firsthand the
-              crushing weight of burnout. After years of running on empty, he
-              discovered a life-changing truth:{" "}
-              <strong className="text-white">
-                Meaningful work requires deep rest.
-              </strong>
-            </p>
-            <p>
-              His mission is to help high-capacity leaders and weary souls alike
-              find the courage to stop, breathe, and trust God with the outcome.
+              Marc Lucenius <strong className="text-white">(MDiv, DMin)</strong>{" "}
+              has spent his career pastoring the tired, coaching the driven, and
+              writing for the restless. He blends biblical wisdom with
+              real-world struggle, recovery, honesty, and a passion for helping
+              people live well, not just work hard. He lives in Pennsylvania
+              with his family and an undying loyalty to Philadelphia sports. As
+              a pastor, leadership coach, and restless soul himself, he’s spent
+              over two decades helping ambitious people find freedom without
+              losing their fire.
             </p>
           </div>
 
@@ -56,21 +54,15 @@ export default function HomeAuthorSection() {
           </div>
         </div>
 
-        {/* Image Placeholder */}
         <div className="order-1 lg:order-2 relative">
-          <div className="relative aspect-[4/5] w-full max-w-md mx-auto">
-            {/* Border effect */}
-            <div className="absolute inset-0 border-2 border-accent-500/30 transform translate-x-4 translate-y-4"></div>
-
-            {/* Image Container */}
-            <div className="absolute inset-0 bg-primary-800 overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
-              {/* Placeholder for real image */}
-              <div className="w-full h-full flex items-center justify-center bg-primary-900 border border-primary-800">
-                <span className="font-serif text-primary-700 text-6xl opacity-20">
-                  ML
-                </span>
-              </div>
-            </div>
+          <div className="relative aspect-4/5 w-full max-w-md mx-auto">
+            <div className="absolute inset-0 border-2 border-accent-500/30 transform translate-x-4 translate-y-4" />
+            <Image
+              src="/imgs/author.jpg"
+              fill
+              objectFit="cover"
+              alt="Marc Lucenius"
+            />
           </div>
         </div>
       </div>

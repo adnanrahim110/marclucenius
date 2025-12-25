@@ -1,5 +1,11 @@
 import PageHero from "../components/PageHero";
 
+export const metadata = {
+  title: "Coaching | Marc Lucenius",
+  description:
+    "Personalized coaching for pastors and leaders looking to deepen their spiritual life and leadership impact.",
+};
+
 export default function Coaching() {
   return (
     <div className="bg-primary-950 min-h-screen">

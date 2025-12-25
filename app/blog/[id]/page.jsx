@@ -1,6 +1,18 @@
 import Link from "next/link";
 import PageHero from "../../components/PageHero";
 
+export async function generateMetadata({ params }) {
+  // In a real app, fetch data based on params.id
+  // const { id } = await params;
+
+  // For now, we'll return static metadata that matches the static content
+  return {
+    title: "Why Rest is an Act of Resistance | Marc Lucenius",
+    description:
+      "In a culture that demands constant production, choosing to stop is a radical act of faith.",
+  };
+}
+
 export default async function BlogPost({ params }) {
   // In a real app, fetch data based on params.id
   // const { id } = await params;

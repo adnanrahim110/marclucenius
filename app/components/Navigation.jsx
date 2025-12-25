@@ -11,16 +11,15 @@ export default function Navigation() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Products", href: "/book" },
+    { name: "Book", href: "/book" },
     { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/coaching" }, // Mapping 'Contact' to coaching/contact for now
+    { name: "Contact", href: "/coaching" },
   ];
 
   return (
-    <nav className="fixed w-full z-50 bg-primary-950/95 backdrop-blur-sm border-b border-primary-800/50">
+    <nav className="fixed w-full z-50 bg-primary-950/40 backdrop-blur-sm border-b border-primary-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
-          {/* Left Side Links */}
+        <div className="flex items-center justify-between h-18">
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
@@ -37,7 +36,6 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -79,15 +77,7 @@ export default function Navigation() {
             </button>
           </div>
 
-          {/* Right Side Actions */}
           <div className="hidden md:flex items-center space-x-8">
-            <div className="h-6 w-px bg-primary-700"></div> {/* Divider */}
-            <Link
-              href="#"
-              className="text-sm font-medium tracking-widest uppercase text-gray-300 hover:text-white"
-            >
-              Log In
-            </Link>
             <button className="bg-accent-400 text-primary-950 px-6 py-3 font-bold uppercase tracking-widest text-sm hover:bg-accent-300 transition-colors shadow-[0_0_15px_rgba(206,165,93,0.3)]">
               Order Now
             </button>
@@ -95,7 +85,6 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-primary-950 border-b border-primary-800">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -109,12 +98,6 @@ export default function Navigation() {
                 {link.name}
               </Link>
             ))}
-            <Link
-              href="#"
-              className="block px-3 py-4 text-base font-medium text-center uppercase tracking-widest text-gray-400"
-            >
-              Log In
-            </Link>
             <div className="p-4">
               <button className="w-full bg-accent-400 text-primary-950 px-6 py-3 font-bold uppercase tracking-widest text-sm">
                 Order Now

@@ -63,7 +63,7 @@
   }
 
   p {
-    @apply text-lg leading-relaxed text-gray-300 font-light max-w-prose;
+    @apply text-lg leading-relaxed text-gray-300 font-light;
   }
 
   .btn-primary {

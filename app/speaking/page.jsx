@@ -1,5 +1,11 @@
 import PageHero from "../components/PageHero";
 
+export const metadata = {
+  title: "Speaking | Marc Lucenius",
+  description:
+    "Invite Marc Lucenius to speak at your church, conference, or event about rest, sabbath, and spiritual formation.",
+};
+
 export default function Speaking() {
   return (
     <div className="bg-primary-950 min-h-screen">

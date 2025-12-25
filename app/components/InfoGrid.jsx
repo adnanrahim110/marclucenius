@@ -17,10 +17,9 @@ export default function InfoGrid() {
           />
         </svg>
       ),
-      title: "About the Author",
+      title: "To Escape the Burnout Cycle",
       description:
-        "Marc Lucenius is a pastor and leader helping people find rest in a chaotic world.",
-      linkText: "Learn More",
+        "Learn to identify and break the patterns of overwork and anxiety that lead to exhaustion.",
     },
     {
       icon: (
@@ -39,10 +38,9 @@ export default function InfoGrid() {
           />
         </svg>
       ),
-      title: "Book Synopsis",
+      title: "To Redefine Success",
       description:
-        "Discover the journey of releasing ambition to find a life of true peace.",
-      linkText: "Learn More",
+        "Discover a healthier, soul-centered definition of success that isn't tied to productivity or prestige.",
     },
     {
       icon: (
@@ -61,10 +59,9 @@ export default function InfoGrid() {
           />
         </svg>
       ),
-      title: "Endorsements",
+      title: "To Find Practical Solace",
       description:
-        "See what leaders and readers are saying about 'Rest for the Restless'.",
-      linkText: "read reviews", // Lowercase in design? I'll keep it title case for consistency but maybe check image. Image says "Sethem Wirtch"? hard to read.
+        "Gain tangible, daily practices that create space for rest and spiritual renewal amidst your obligations.",
     },
     {
       icon: (
@@ -83,10 +80,9 @@ export default function InfoGrid() {
           />
         </svg>
       ),
-      title: "Events",
+      title: "To Build a Sustainable Life",
       description:
-        "Join Marc at upcoming speaking engagements and book signings.",
-      linkText: "View Calendar",
+        "Move from surviving to thriving by constructing a life rhythm that prioritizes peace and purpose over pressure.",
     },
   ];
 
@@ -104,12 +100,9 @@ export default function InfoGrid() {
             <h3 className="text-2xl font-serif text-white mb-4">
               {item.title}
             </h3>
-            <p className="text-gray-400 text-sm mb-8 leading-relaxed flex-grow">
+            <p className="text-gray-400 text-sm leading-relaxed grow">
               {item.description}
             </p>
-            <button className="border border-gray-600 text-gray-300 px-6 py-2 text-xs font-bold uppercase tracking-widest hover:border-accent-500 hover:text-accent-400 transition-colors">
-              {item.linkText}
-            </button>
           </div>
         ))}
       </div>
