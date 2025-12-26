@@ -1,6 +1,8 @@
+import EndorsementBanner from "./components/EndorsementBanner";
 import HeroSection from "./components/HeroSection";
 import HomeAuthorSection from "./components/HomeAuthorSection";
 import HomeBookSection from "./components/HomeBookSection";
+import HomeExtraSections from "./components/HomeExtraSections";
 import HomeReviewsSection from "./components/HomeReviewsSection";
 import InfoGrid from "./components/InfoGrid";
 
@@ -12,11 +14,13 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="space-y-0">
+    <div className="space-y-0 odd-sections-textured">
       <HeroSection />
       <HomeBookSection />
+      <EndorsementBanner />
       <HomeAuthorSection />
       <HomeReviewsSection />
+      <HomeExtraSections />
       <InfoGrid />
     </div>
   );

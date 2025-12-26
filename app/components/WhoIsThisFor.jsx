@@ -1,5 +1,7 @@
+import { Check } from "lucide-react";
+
 export default function WhoIsThisFor() {
-  const audienceList = [
+  const items = [
     {
       title: "The Ambitious Leader",
       description:
@@ -23,8 +25,15 @@ export default function WhoIsThisFor() {
   ];
 
   return (
-    <section className="bg-primary-950 py-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-primary-950 py-24 relative overflow-hidden" data-reveal>
+      <div aria-hidden="true" className="absolute inset-0 bg-mesh-ink opacity-80" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(900px_420px_at_50%_-10%,rgba(168,138,91,0.22),transparent_60%)] opacity-100 parallax-soft"
+      />
+      <div aria-hidden="true" className="absolute inset-0 bg-linear-to-b from-primary-950/0 via-primary-950/35 to-primary-950" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-accent-300 mb-2 font-bold tracking-widest uppercase text-sm">
@@ -33,7 +42,7 @@ export default function WhoIsThisFor() {
             <h3 className="text-4xl md:text-5xl font-serif text-white mb-8">
               Is This Book For You?
             </h3>
-            <p className="text-gray-400 text-lg mb-8">
+            <p className="text-primary-300 text-lg mb-8">
               "Rest for the Restless" isn't for everyone. It's for those who
               have tried to simply "do less" and found it insufficient. It's for
               the high-capacity leader who needs a rest that works relative to
@@ -43,29 +52,18 @@ export default function WhoIsThisFor() {
           </div>
 
           <div className="space-y-8">
-            {audienceList.map((item, index) => (
+            {items.map((item, index) => (
               <div key={index} className="flex gap-4 group">
-                <div className="flex-shrink-0 mt-1">
+                <div className="shrink-0 mt-1">
                   <div className="w-8 h-8 rounded-full border border-accent-600 flex items-center justify-center text-accent-500 group-hover:bg-accent-600 group-hover:text-primary-950 transition-colors duration-300">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <Check className="h-5 w-5" strokeWidth={2.4} aria-hidden="true" />
                   </div>
                 </div>
                 <div>
                   <h4 className="text-xl text-white font-serif mb-2 group-hover:text-accent-300 transition-colors">
                     {item.title}
                   </h4>
-                  <p className="text-gray-400 text-base">{item.description}</p>
+                  <p className="text-primary-300 text-base">{item.description}</p>
                 </div>
               </div>
             ))}

@@ -1,24 +1,40 @@
-export default function EndorsementBanner() {
-  return (
-    <section className="bg-primary-900 border-y border-primary-800 py-16">
-      <div className="max-w-5xl mx-auto px-6 text-center">
-        <blockquote className="relative">
-          <span className="text-6xl text-accent-700 absolute -top-8 -left-8 font-serif">
-            “
-          </span>
-          <p className="text-2xl md:text-3xl font-serif text-paper italic leading-relaxed">
-            In a world that celebrates burnout, Marc offers a different way—a
-            way that leads to life, peace, and longevity. This book is the
-            exhale you’ve been waiting for.
-          </p>
-          <span className="text-6xl text-accent-700 absolute -bottom-12 -right-8 font-serif">
-            ”
-          </span>
+import { Quote } from "lucide-react";
 
-          <footer className="mt-8 text-accent-400 font-bold tracking-widest uppercase text-sm">
-            — Dr. John Doe, Author of The Quiet Life
-          </footer>
-        </blockquote>
+export default function EndorsementBanner({
+  quote = "In a world that celebrates burnout, Marc offers a different way — a way that leads to peace, longevity, and joy. This book is the exhale you’ve been waiting for.",
+  attribution = "— A fellow pastor & friend",
+  eyebrow = "Endorsement",
+}) {
+  return (
+    <section className="relative py-16 md:py-20 bg-primary-950 overflow-hidden" data-reveal>
+      <div aria-hidden="true" className="absolute inset-0 bg-mesh-ink opacity-80" />
+      <div aria-hidden="true" className="absolute inset-0 bg-linear-to-b from-primary-950/0 via-primary-950/40 to-primary-950" />
+
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-8">
+          <span className="text-xs font-semibold text-accent-300 uppercase tracking-widest">
+            {eyebrow}
+          </span>
+        </div>
+
+        <div className="relative border border-primary-800/80 rounded-2xl bg-primary-900/45 shadow-[0_30px_80px_rgba(0,0,0,0.35)] overflow-hidden">
+          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(520px_circle_at_50%_0%,rgba(168,138,91,0.25),transparent_55%)]" />
+          <div className="relative p-10 md:p-14 text-center">
+            <div className="flex items-center justify-center mb-8">
+              <div className="w-14 h-14 rounded-full border border-primary-800/80 bg-primary-950/40 flex items-center justify-center text-accent-400 shadow-sm shadow-black/30">
+                <Quote className="w-6 h-6" aria-hidden="true" />
+              </div>
+            </div>
+
+            <blockquote className="text-2xl md:text-3xl font-serif text-cream-100 leading-relaxed italic">
+              “{quote}”
+            </blockquote>
+
+            <p className="mt-8 text-accent-300/90 font-semibold tracking-widest uppercase text-xs">
+              {attribution}
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

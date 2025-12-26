@@ -1,26 +1,56 @@
 import React from "react";
 
-export default function PageHero({ title, subtitle, className = "" }) {
+export default function PageHero({ title, subtitle, tone = "light", className = "" }) {
+  const isDark = tone === "dark";
+
   return (
     <section
-      className={`relative py-20 bg-primary-950 overflow-hidden ${className}`}
+      className={`relative py-20 lg:py-28 overflow-hidden ${isDark ? "bg-primary-950" : "bg-cream-200"} ${className}`}
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-[100px] transform translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent-900/10 rounded-full blur-[80px] transform -translate-x-1/2 translate-y-1/2"></div>
-      </div>
+      <div
+        className={`absolute inset-0 z-0 pointer-events-none ${
+          isDark ? "bg-mesh-ink opacity-90" : "bg-paper opacity-70"
+        }`}
+      />
+      <div
+        className={`absolute -inset-10 z-0 pointer-events-none parallax-soft ${
+          isDark
+            ? "bg-[radial-gradient(900px_500px_at_50%_0%,rgba(168,138,91,0.20),transparent_60%)] opacity-90"
+            : "bg-mesh-warm opacity-70"
+        }`}
+      />
+      <div
+        className={`absolute inset-0 z-0 pointer-events-none ${
+          isDark
+            ? "bg-linear-to-b from-primary-950/10 via-primary-950/40 to-primary-950 opacity-100"
+            : "bg-linear-to-b from-cream-200/30 via-transparent to-transparent opacity-100"
+        }`}
+      />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         {subtitle && (
-          <p className="font-script text-accent-400 text-3xl md:text-4xl mb-2 transform -rotate-1">
+          <p
+            className={`font-script text-2xl md:text-3xl mb-3 transform -rotate-1 animate-fade-in-up ${
+              isDark ? "text-accent-300" : "text-earth-500"
+            }`}
+          >
             {subtitle}
           </p>
         )}
-        <h1 className="text-4xl md:text-6xl font-serif font-bold text-white tracking-tight">
+        <h1
+          className={`text-4xl md:text-6xl font-serif font-semibold tracking-tight animate-fade-in-up ${
+            isDark ? "text-cream-100" : "text-charcoal-900"
+          }`}
+          style={{ animationDelay: "0.15s" }}
+        >
           {title}
         </h1>
-        <div className="mt-6 w-24 h-1 bg-accent-500 mx-auto rounded-full opacity-60"></div>
+        <div
+          className={`mt-6 w-16 h-1 mx-auto rounded-full animate-fade-in-up ${
+            isDark ? "bg-accent-500" : "bg-earth-400"
+          }`}
+          style={{ animationDelay: "0.3s" }}
+        ></div>
       </div>
     </section>
   );

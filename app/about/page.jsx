@@ -1,106 +1,117 @@
 import Image from "next/image";
 import PageHero from "../components/PageHero";
+import SpotlightCard from "../components/ui/SpotlightCard";
+import { Download, Facebook, Instagram, Twitter } from "lucide-react";
 
 export const metadata = {
-  title: "About Marc | Marc Lucenius",
+  title: "About Marc | Rest for the Restless",
   description:
-    "Learn about Marc Lucenius, a pastor, author, and speaker passionate about spiritual formation and the rhythms of rest.",
+    "Learn about Marc Lucenius, Lead Pastor of 938 Church and author of Rest for the Restless.",
 };
 
 export default function About() {
   return (
-    <div className="bg-primary-900 min-h-screen">
+    <div className="min-h-screen">
       <PageHero title="About Marc" subtitle="The Story" />
 
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-square rounded-lg overflow-hidden shadow-2xl border border-accent-800/30">
-            <Image
-              src="/imgs/author2.jpg"
-              alt="Marc Lucenius"
-              fill
-              objectFit="cover"
-            />
+      <section className="section-padding relative overflow-hidden" data-reveal>
+        <div aria-hidden="true" className="absolute inset-0 bg-mesh-warm opacity-60 pointer-events-none" />
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start relative z-10">
+          <div className="relative">
+            <div className="sticky top-32">
+              <div className="relative aspect-3/4 rounded-lg overflow-hidden shadow-lg group">
+                <Image
+                  src="/imgs/author2.jpg"
+                  alt="Marc Lucenius"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+              </div>
+
+              <SpotlightCard className="p-6 mt-8">
+                <h3 className="text-earth-600 font-semibold uppercase tracking-widest text-xs mb-4">
+                  Short Bio
+                </h3>
+                <p className="text-charcoal-600 text-sm leading-relaxed mb-5">
+                  Marc Lucenius is the Lead Pastor of 938 Church in West
+                  Chester, Pennsylvania, and the author of{" "}
+                  <em className="text-charcoal-800">Rest for the Restless</em>.
+                </p>
+                <button className="btn-subtle w-full text-xs gap-2">
+                  <Download className="w-4 h-4 text-charcoal-600" aria-hidden="true" />
+                  Download Press Kit & Headshots
+                </button>
+              </SpotlightCard>
+            </div>
           </div>
 
-          <div className="space-y-4 text-lg text-gray-300 leading-relaxed font-sans">
-            <h2 className="text-5xl font-serif text-white mb-6">
-              Meet Marc Lucenius
-            </h2>
-            <p>
-              Marc Lucenius is a pastor, speaker, and author who helps people
-              find genuine rest in a world that rarely slows down. With more
-              than ten years of ministry experience, he understands how deeply
-              modern life exhausts the mind, body, and spirit.
-            </p>
-            <p>
-              The inspiration behind <em>Rest for the Restless</em> grew out of
-              Marc’s own battle with burnout and his realization that hustle
-              culture clashes with a life grounded in faith and peace. Through
-              his work, he invites readers to step away from constant striving
-              and rediscover trust as the foundation of proper rest.
-            </p>
-            <div className="p-6 border-l-2 border-accent-500 bg-primary-950/50 italic text-accent-100 my-7">
-              "True rest isn’t just about stopping work; it’s about starting to
-              trust."
+          <div className="space-y-8">
+            <div>
+              <div className="w-16 h-1 bg-earth-400 mb-6"></div>
+              <h2 className="text-4xl lg:text-5xl font-serif text-charcoal-900 leading-tight">
+                The Longer Story
+              </h2>
             </div>
-            <p>
-              Outside of writing and speaking, Marc enjoys time with his family,
-              hiking the trails of the Pacific Northwest, and crafting the
-              perfect cup of coffee.
-            </p>
 
-            <div className="pt-4">
-              <h3 className="text-xl font-serif text-white mb-4">
+            <div className="prose prose-lg max-w-none prose-p:font-light prose-p:text-charcoal-600 prose-em:text-charcoal-800">
+              <p>
+                I've always been driven. Whether in ministry, leadership, or
+                family life, I pushed hard- convinced that if I wasn't
+                producing, I wasn't valuable. From the outside, things looked
+                great. On the inside, I was running on fumes.
+              </p>
+              <p>
+                I wasn't burned out. Not yet. But I was restless—always pushing,
+                always striving, always feeling like there was one more thing I
+                needed to do to prove that I belonged.
+              </p>
+
+              <blockquote className="border-l-4 border-earth-400 pl-6 my-10 italic text-charcoal-700 text-2xl font-serif">
+                Then Jesus interrupted me.
+              </blockquote>
+
+              <p>
+                Through Scripture, wise mentors, honest community, and some
+                painful moments of hitting my limits, I began to see that the
+                rest Jesus promised in Matthew 11 wasn't a metaphor—it was a way
+                of life.
+              </p>
+              <p>
+                <em className="text-charcoal-800">Rest for the Restless</em> is
+                the story of that journey. It's written for every believer who
+                wants to serve God wholeheartedly without losing themselves in
+                the process.
+              </p>
+              <p>
+                Today, I pastor 938 Church, where we are learning how to live
+                out God's vision with joy, not exhaustion. I live in West
+                Chester, PA, with my family, and I love hiking, coaching
+                leaders, and helping people rediscover the grace of a rested
+                life.
+              </p>
+            </div>
+
+            <div className="pt-8 border-t border-charcoal-200">
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-charcoal-900 mb-4">
                 Connect with Marc
               </h3>
-              <div className="flex space-x-4">
-                {["Instagram", "Twitter", "Facebook"].map((social) => (
+              <div className="flex space-x-3">
+                {[
+                  { name: "Instagram", icon: Instagram },
+                  { name: "Twitter", icon: Twitter },
+                  { name: "Facebook", icon: Facebook },
+                ].map((social) => (
                   <a
-                    key={social}
+                    key={social.name}
                     href="#"
-                    className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-600 text-gray-400 hover:border-accent-400 hover:text-accent-400 transition-all"
+                    className="flex items-center justify-center w-10 h-10 rounded-full border border-charcoal-300 text-charcoal-400 hover:border-charcoal-800 hover:bg-charcoal-800 hover:text-cream-100 transition-all duration-300"
                   >
-                    <span className="sr-only">{social}</span>
-                    <div className="w-4 h-4 bg-current rounded-sm"></div>
+                    <span className="sr-only">{social.name}</span>
+                    <social.icon className="w-5 h-5" aria-hidden="true" />
                   </a>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-primary-950 border-t border-primary-800">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl lg:text-4xl font-serif text-white mb-12">
-            Core Values
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Authenticity",
-                desc: "Speaking truth with love and transparency.",
-              },
-              {
-                title: "Rest",
-                desc: "Believing that peace is a promise, not a prize.",
-              },
-              {
-                title: "Community",
-                desc: "Walking together through the highs and lows.",
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="p-6 border border-accent-900/50 bg-primary-900/50 hover:border-accent-600 transition-colors"
-              >
-                <h3 className="text-xl font-serif text-accent-300 mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-gray-400 text-sm">{item.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

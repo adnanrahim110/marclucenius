@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ArrowDown, ArrowRight, Download, Sparkles } from "lucide-react";
 
 export default function HeroSection() {
   const [loaded, setLoaded] = useState(false);
@@ -11,142 +13,118 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-dvh flex items-center justify-center bg-primary-950 pt-20 lg:pt-0">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-125 h-125 bg-accent-600/10 rounded-full blur-[120px] mix-blend-screen animate-pulse-slow"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-150 h-150 bg-accent-400/5 rounded-full blur-[100px] mix-blend-screen"></div>
+    <section className="relative min-h-dvh flex items-center justify-center bg-paper overflow-hidden pt-20 lg:pt-0">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-linear-to-b from-cream-200/50 via-cream-100 to-cream-50"></div>
+        <div className="absolute inset-0 bg-mesh-warm opacity-70"></div>
 
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
-            backgroundSize: "4rem 4rem",
-          }}
-        ></div>
-        <div className="absolute inset-0 bg-linear-to-b from-primary-950/0 via-primary-950/0 to-primary-950/80 z-0"></div>
+        <div className="absolute top-[10%] right-[5%] w-32 h-32 opacity-[0.08] bg-charcoal-400 rounded-full blur-3xl parallax-soft"></div>
+        <div className="absolute bottom-[15%] left-[8%] w-48 h-48 opacity-[0.06] bg-earth-400 rounded-full blur-3xl parallax-strong"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl w-full mx-auto px-6 pt-12 pb-20 lg:py-0 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="relative z-10 max-w-6xl w-full mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center py-16">
         <div
           className={`flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 transition-all duration-1000 ease-out transform ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="space-y-2">
-            <span className="inline-block py-1 px-3 rounded-full bg-accent-500/10 text-accent-300 text-xs font-bold tracking-[0.2em] uppercase border border-accent-500/20 backdrop-blur-md">
-              The New Book by Marc Lucenius
+          <div
+            className="inline-flex items-center gap-2 rounded-full border border-charcoal-200/60 bg-cream-50/60 backdrop-blur-sm px-4 py-2 shadow-sm shadow-charcoal-900/5"
+            style={{ animationDelay: "0.1s" }}
+          >
+            <Sparkles className="w-4 h-4 text-earth-600" aria-hidden="true" />
+            <span className="text-[11px] uppercase tracking-[0.22em] text-charcoal-700 font-semibold">
+              New release • Available now
             </span>
-            <h1 className="flex flex-col">
-              <span className="font-serif text-4xl sm:text-5xl lg:text-7xl text-gray-100 font-bold leading-[1.1] tracking-tight">
-                Tired of running on
+          </div>
+
+          <div className="space-y-6">
+            <h1 className="font-serif">
+              <span
+                className="block text-4xl sm:text-5xl lg:text-6xl text-charcoal-700 font-light tracking-tight animate-fade-in-up"
+                style={{ animationDelay: "0.2s" }}
+              >
+                Rest for the
               </span>
-              <span className="font-serif text-5xl sm:text-6xl lg:text-8xl text-accent-400 font-bold leading-none lg:-mt-2 tracking-tight drop-shadow-2xl">
-                empty?
+              <span
+                className="block text-5xl sm:text-6xl lg:text-7xl text-charcoal-900 font-semibold leading-none tracking-tight mt-2 animate-fade-in-up"
+                style={{ animationDelay: "0.4s" }}
+              >
+                Restless
               </span>
             </h1>
+
+            <p
+              className="text-xl sm:text-2xl text-earth-600 font-serif italic font-light animate-fade-in-up"
+              style={{ animationDelay: "0.5s" }}
+            >
+              Releasing Your Ambition Through a Well-Rested Life
+            </p>
           </div>
 
-          <p className="font-sans text-lg sm:text-xl text-gray-300 max-w-xl font-light leading-relaxed">
-            You’re driven, maybe even a little restless. You love the thrill of
-            the goal, but lately,{" "}
-            <span className="text-white font-medium">
-              all you feel is the grind.
-            </span>
+          <p
+            className="text-lg text-charcoal-500 max-w-lg font-light leading-relaxed animate-fade-in-up"
+            style={{ animationDelay: "0.6s" }}
+          >
+            I'm Marc Lucenius—pastor, author, coach and entrepreneur. Join me as
+            I discover Jesus' way of living both restless and rested.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto pt-4">
-            <button className="group relative w-full sm:w-auto overflow-hidden bg-accent-500 text-primary-950 px-8 py-4 font-sans font-bold uppercase tracking-widest text-sm shadow-[0_0_30px_-5px_rgba(194,142,67,0.4)] transition-all hover:shadow-[0_0_50px_-5px_rgba(194,142,67,0.6)] hover:scale-105 active:scale-95">
-              <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-                Order The Book
-              </span>
-              <div className="absolute inset-0 bg-primary-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
-            </button>
-
-            <button className="group w-full sm:w-auto px-8 py-4 border border-white/10 text-gray-200 font-sans font-bold uppercase tracking-widest text-sm hover:border-accent-400/50 hover:bg-accent-400/5 transition-all hover:text-accent-300 backdrop-blur-sm">
-              <span className="flex items-center justify-center gap-2">
-                Learn More
-                <svg
-                  className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </span>
-            </button>
+          <div
+            className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto pt-4 animate-fade-in-up"
+            style={{ animationDelay: "0.8s" }}
+          >
+            <Link href="/book" className="btn-primary w-full sm:w-auto gap-2">
+              Get the Book
+              <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
+            </Link>
+            <Link href="/resources" className="btn-outline w-full sm:w-auto gap-2">
+              Download 7-Day Reset
+              <Download className="w-4 h-4 opacity-90" aria-hidden="true" />
+            </Link>
           </div>
 
-          <div className="pt-8 flex items-center gap-4 text-sm text-gray-400 font-serif italic opacity-80">
-            <div className="h-px w-12 bg-accent-500/30"></div>
-            <span>"A must-read for the modern achiever."</span>
+          <div
+            className="pt-6 flex items-center gap-4 text-charcoal-400 animate-fade-in-up"
+            style={{ animationDelay: "1s" }}
+          >
+            <div className="h-px w-16 bg-charcoal-300"></div>
+            <span className="font-serif italic text-sm">
+              "A must-read for the modern soul."
+            </span>
+          </div>
+
+          <div className="hidden lg:flex items-center gap-3 pt-2 text-charcoal-400">
+            <div className="h-px w-10 bg-charcoal-300/80" />
+            <span className="text-xs uppercase tracking-[0.22em]">Scroll</span>
+            <ArrowDown className="w-4 h-4 animate-bounce" aria-hidden="true" />
           </div>
         </div>
 
         <div
-          className={`relative flex justify-center lg:justify-end lg:order-last mb-10 lg:mb-0 transition-all duration-1000 delay-300 ease-out transform ${
-            loaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+          className={`relative flex justify-center lg:justify-end mt-8 lg:mt-0 transition-all duration-1000 delay-300 ease-out transform ${
+            loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent-500/20 blur-[60px] rounded-full animate-pulse-slow pointer-events-none"></div>
+          <div className="relative w-64 sm:w-72 lg:w-80 group">
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-8 bg-charcoal-900/15 blur-2xl rounded-[100%] transition-all duration-500 group-hover:w-[90%] group-hover:bg-charcoal-900/20"></div>
 
-          <div className="relative w-70 sm:w-90 lg:w-105 aspect-2/3 transform transition-transform duration-500 hover:scale-[1.02] perspective-1000 group">
-            <div className="absolute -bottom-10 left-10 right-10 h-8 bg-black/60 blur-xl rounded-[100%] group-hover:blur-2xl transition-all duration-500"></div>
-
-            <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl animate-float">
-              <div className="absolute left-0 top-0 bottom-0 w-3 bg-linear-to-r from-white/20 to-transparent z-20 mix-blend-overlay"></div>
-              <div className="absolute right-0 top-0 bottom-0 w-1 bg-black/40 z-20 mix-blend-multiply"></div>
-
-              <Image
-                src="/imgs/book.png"
-                alt="Rest for the Restless Book Cover"
-                fill
-                className="object-cover"
-                priority
-              />
-
-              <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+            <div className="relative animate-float">
+              <div className="relative aspect-2/3 rounded-r-lg rounded-l-sm overflow-hidden shadow-xl border border-cream-400/50 transition-transform duration-700 group-hover:-rotate-2 group-hover:scale-[1.02]">
+                <Image
+                  src="/imgs/book.png"
+                  alt="Rest for the Restless Book Cover"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-white/10 pointer-events-none"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-[3%] bg-linear-to-r from-charcoal-900/20 to-transparent"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(1deg);
-          }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        @keyframes pulse-slow {
-          0%,
-          100% {
-            opacity: 0.5;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.8;
-            transform: scale(1.05);
-          }
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 8s ease-in-out infinite;
-        }
-        .perspective-1000 {
-          perspective: 1000px;
-        }
-      `}</style>
     </section>
   );
 }

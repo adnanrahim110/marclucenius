@@ -1,88 +1,69 @@
 import Link from "next/link";
 import PageHero from "../components/PageHero";
+import SpotlightCard from "../components/ui/SpotlightCard";
+import { ArrowRight, CalendarDays, Clock3, Tag } from "lucide-react";
+import { BLOGS } from "@/content/blogs";
 
 export const metadata = {
-  title: "Focal Point Blog | Marc Lucenius",
+  title: "Blog | Rest for the Restless",
   description:
     "Read the latest thoughts and reflections from Marc Lucenius on faith, culture, and the spiritual life.",
 };
 
 export default function Blog() {
-  const posts = [
-    {
-      id: 1,
-      title: "Why Rest is an Act of Resistance",
-      excerpt:
-        "In a culture that demands constant production, choosing to stop is a radical act of faith.",
-      date: "October 12, 2023",
-      category: "Spiritual Formation",
-    },
-    {
-      id: 2,
-      title: "The Myth of a Balanced Life",
-      excerpt:
-        "We often chase balance, but what if we were actually made for rhythm instead?",
-      date: "September 28, 2023",
-      category: "Culture",
-    },
-    {
-      id: 3,
-      title: "3 Books That Changed My View on Work",
-      excerpt:
-        "A curated list of reads that helped me dissociate my value from my output.",
-      date: "September 15, 2023",
-      category: "Resources",
-    },
-  ];
-
   return (
-    <div className="bg-primary-950 min-h-screen">
+    <div className="min-h-screen">
       <PageHero title="Journal" subtitle="Thoughts & Musings" />
 
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section className="section-padding relative" data-reveal>
+        <div aria-hidden="true" className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none" />
+        <div className="max-w-5xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
+            {BLOGS.map((post, index) => (
               <Link
-                href={`/blogs/${post.id}`}
+                href={`/blog/${post.id}`}
                 key={post.id}
                 className="group block h-full"
+                data-reveal
+                style={{ "--reveal-delay": `${index * 90}ms` }}
               >
-                <div className="flex flex-col h-full bg-primary-900/30 border border-primary-800/50 hover:border-accent-500/50 transition-all duration-300">
-                  <div className="w-full aspect-video bg-primary-800 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-primary-900 group-hover:scale-105 transition-transform duration-700"></div>
+                <SpotlightCard className="flex flex-col h-full rounded-2xl">
+                  <div className="w-full aspect-video relative overflow-hidden">
+                    <div className="absolute inset-0 bg-linear-to-tr from-cream-200 via-cream-100 to-earth-100" />
+                    <div className="absolute inset-0 bg-paper opacity-50" />
+                    <div className="absolute inset-0 bg-mesh-warm opacity-70" />
+                    <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-cream-50/60" />
                   </div>
 
-                  <div className="p-8 flex flex-col grow">
-                    <div className="flex items-center justify-between text-xs text-accent-500 uppercase tracking-widest mb-4">
-                      <span>{post.category}</span>
-                      <span>{post.date}</span>
+                  <div className="p-7 flex flex-col grow">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs uppercase tracking-widest mb-5">
+                      <span className="inline-flex items-center gap-2 text-earth-700 font-semibold">
+                        <Tag className="w-3.5 h-3.5" aria-hidden="true" />
+                        {post.category}
+                      </span>
+                      <span className="inline-flex items-center gap-2 text-charcoal-400">
+                        <CalendarDays className="w-3.5 h-3.5" aria-hidden="true" />
+                        {post.date}
+                      </span>
+                      <span className="inline-flex items-center gap-2 text-charcoal-400">
+                        <Clock3 className="w-3.5 h-3.5" aria-hidden="true" />
+                        {post.readingTime}
+                      </span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-serif text-white mb-4 group-hover:text-accent-300 transition-colors">
+                    <h3 className="text-xl font-serif text-charcoal-900 mb-3 group-hover:text-earth-700 transition-colors leading-snug">
                       {post.title}
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed mb-6 grow">
+                    <p className="text-charcoal-500 text-sm leading-relaxed mb-7 grow font-light">
                       {post.excerpt}
                     </p>
-                    <span className="text-white text-xs font-bold uppercase tracking-widest border-b border-transparent group-hover:border-accent-500 inline-block w-max pb-1 transition-all">
+                    <div className="flex items-center text-earth-700 text-xs font-semibold uppercase tracking-widest group-hover:translate-x-1 transition-transform duration-300">
                       Read Article
-                    </span>
+                      <ArrowRight className="h-4 w-4 ml-2" aria-hidden="true" />
+                    </div>
                   </div>
-                </div>
+                </SpotlightCard>
               </Link>
             ))}
-          </div>
-
-          <div className="flex justify-center mt-20 space-x-2">
-            <button className="w-10 h-10 border border-primary-700 text-gray-400 hover:text-white hover:border-accent-500 flex items-center justify-center transition-colors">
-              1
-            </button>
-            <button className="w-10 h-10 border border-transparent text-gray-500 hover:text-white flex items-center justify-center transition-colors">
-              2
-            </button>
-            <button className="w-10 h-10 border border-transparent text-gray-500 hover:text-white flex items-center justify-center transition-colors">
-              Next
-            </button>
           </div>
         </div>
       </section>
