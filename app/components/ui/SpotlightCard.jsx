@@ -18,7 +18,9 @@ export default function SpotlightCard({
   const enabled = useRef(true);
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    const prefersReducedMotion = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)"
+    )?.matches;
     const finePointer = window.matchMedia?.("(pointer: fine)")?.matches;
     const canHover = window.matchMedia?.("(hover: hover)")?.matches;
     enabled.current = !prefersReducedMotion && !!finePointer && !!canHover;
@@ -58,6 +60,7 @@ export default function SpotlightCard({
       onPointerEnter={(event) => {
         if (enabled.current && ref.current) {
           rectRef.current = ref.current.getBoundingClientRect();
+          ref.current.style.willChange = "transform";
           ref.current.style.setProperty("--rx", "0deg");
           ref.current.style.setProperty("--ry", "0deg");
 
@@ -83,25 +86,29 @@ export default function SpotlightCard({
         if (ref.current) {
           ref.current.style.setProperty("--rx", "0deg");
           ref.current.style.setProperty("--ry", "0deg");
+          ref.current.style.willChange = "auto";
         }
 
         props.onPointerLeave?.(event);
       }}
       className={cx(
-        "group relative overflow-hidden rounded-xl border border-charcoal-200/40 bg-cream-50 shadow-sm shadow-charcoal-900/5 transition-[transform,box-shadow,border-color] duration-500 transform-gpu",
-        "[transform:translate3d(0,var(--lift,0px),0)_perspective(900px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))]",
+        "group relative rounded-xl border border-charcoal-200/40 bg-cream-50 shadow-sm shadow-charcoal-900/5 transition-[transform,box-shadow,border-color] duration-500 transform-gpu",
+        "transform-[translate3d(0,var(--lift,0px),0)_perspective(900px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))]",
         "hover:[--lift:-4px] hover:shadow-xl hover:shadow-charcoal-900/12 hover:border-earth-500/45",
-        "will-change-transform",
         className
       )}
       {...(() => {
-        const { onPointerEnter, onPointerLeave, onPointerMove, ...rest } = props;
+        const { onPointerEnter, onPointerLeave, onPointerMove, ...rest } =
+          props;
         return rest;
       })()}
     >
       <div
         aria-hidden="true"
-        className={cx("pointer-events-none absolute inset-0", spotlightClassName)}
+        className={cx(
+          "pointer-events-none absolute inset-0",
+          spotlightClassName
+        )}
       />
       <div
         aria-hidden="true"
@@ -109,7 +116,7 @@ export default function SpotlightCard({
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-[-40%] w-[40%] opacity-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.18),transparent)] skew-x-[-18deg] group-hover:opacity-100 group-hover:animate-sheen"
+        className="pointer-events-none absolute inset-y-0 left-[-40%] w-[40%] opacity-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.18),transparent)] skew-x-[-18deg] group-hover:opacity-100 motion-safe:group-hover:animate-sheen"
       />
       {children}
     </As>

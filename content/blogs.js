@@ -611,3 +611,7 @@ export function getBlogById(id) {
   return BLOGS.find((blog) => blog.id === value) ?? null;
 }
 
+export function getBlogBySlug(slug) {
+  const value = String(slug ?? "");
+  return BLOGS.find((blog) => blog.slug === value) ?? null;
+}

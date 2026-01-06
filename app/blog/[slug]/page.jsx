@@ -5,7 +5,7 @@ import PageHero from "../../components/PageHero";
 import SpotlightCard from "../../components/ui/SpotlightCard";
 import ReadingProgress from "../../components/ui/ReadingProgress";
 import CopyLinkButton from "../../components/ui/CopyLinkButton";
-import { BLOGS, getBlogById } from "@/content/blogs";
+import { BLOGS, getBlogBySlug } from "@/content/blogs";
 import {
   ArrowLeft,
   ArrowRight,
@@ -20,12 +20,12 @@ import {
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return BLOGS.map((post) => ({ id: post.id }));
+  return BLOGS.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }) {
-  const { id } = await params;
-  const post = getBlogById(id);
+  const { slug } = await params;
+  const post = getBlogBySlug(slug);
 
   if (!post) {
     return {
@@ -107,8 +107,8 @@ function BlogContent({ blocks }) {
 }
 
 export default async function BlogPost({ params }) {
-  const { id } = await params;
-  const post = getBlogById(id);
+  const { slug } = await params;
+  const post = getBlogBySlug(slug);
   if (!post) notFound();
 
   const related = BLOGS.filter((candidate) => candidate.id !== post.id).slice(0, 2);
@@ -126,22 +126,18 @@ export default async function BlogPost({ params }) {
       <PageHero
         title="Journal"
         subtitle={post.category}
-        className="min-h-[50vh]"
+        className="min-h-[50vh] no-parallax"
       />
 
       <section className="relative z-10 -mt-16 md:-mt-24 pb-24 px-6">
         <div aria-hidden="true" className="absolute inset-0 bg-mesh-warm opacity-35 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10">
           <main className="min-w-0">
-            <article
-              className="paper-card-elevated !rounded-3xl border-cream-300/70 shadow-[0_50px_140px_rgba(15,14,13,0.16)]"
-              data-reveal
-            >
+            <article className="paper-card-elevated !rounded-3xl border-cream-300/70 shadow-[0_30px_80px_rgba(15,14,13,0.12)]">
               <div aria-hidden="true" className="absolute inset-0 bg-paper opacity-90" />
-              <div aria-hidden="true" className="absolute inset-0 bg-mesh-warm opacity-55" />
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-[radial-gradient(900px_500px_at_16%_0%,rgba(168,138,91,0.18),transparent_64%)] opacity-90 parallax-soft"
+                className="absolute inset-0 bg-mesh-warm opacity-45"
               />
               <div
                 aria-hidden="true"
@@ -197,9 +193,9 @@ export default async function BlogPost({ params }) {
             </article>
 
             {(previous || next) && (
-              <section className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6" data-reveal>
+              <section className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
                 {previous ? (
-                  <Link href={`/blog/${previous.id}`} className="group block h-full">
+                  <Link href={`/blog/${previous.slug}`} className="group block h-full">
                     <SpotlightCard className="h-full !rounded-2xl border-cream-300/70 bg-cream-50/70 shadow-none hover:shadow-2xl hover:shadow-charcoal-900/10 hover:border-earth-500/40">
                       <div className="p-7 flex flex-col h-full">
                         <p className="text-[11px] uppercase tracking-widest text-charcoal-400 mb-3 font-semibold">
@@ -223,7 +219,7 @@ export default async function BlogPost({ params }) {
                 )}
 
                 {next ? (
-                  <Link href={`/blog/${next.id}`} className="group block h-full">
+                  <Link href={`/blog/${next.slug}`} className="group block h-full">
                     <SpotlightCard className="h-full !rounded-2xl border-cream-300/70 bg-cream-50/70 shadow-none hover:shadow-2xl hover:shadow-charcoal-900/10 hover:border-earth-500/40">
                       <div className="p-7 flex flex-col h-full">
                         <p className="text-[11px] uppercase tracking-widest text-charcoal-400 mb-3 font-semibold">
@@ -249,13 +245,13 @@ export default async function BlogPost({ params }) {
             )}
 
             {related.length > 0 && (
-              <section className="mt-16" data-reveal>
+              <section className="mt-16">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-charcoal-500 mb-6">
                   More From The Journal
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {related.map((item) => (
-                    <Link key={item.id} href={`/blog/${item.id}`} className="group block h-full">
+                    <Link key={item.id} href={`/blog/${item.slug}`} className="group block h-full">
                       <SpotlightCard className="h-full !rounded-2xl border-cream-300/70 bg-cream-50/70 shadow-none hover:shadow-2xl hover:shadow-charcoal-900/10 hover:border-earth-500/40">
                         <div className="p-7 flex flex-col h-full">
                           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] uppercase tracking-widest mb-4">

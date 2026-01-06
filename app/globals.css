@@ -296,6 +296,11 @@
     translate: calc(var(--cursor-nx, 0) * -16px) calc(var(--cursor-ny, 0) * -12px);
   }
 
+  .no-parallax .parallax-soft,
+  .no-parallax .parallax-strong {
+    translate: 0 0;
+  }
+
   @media (prefers-reduced-motion: reduce), (pointer: coarse) {
     .parallax-soft,
     .parallax-strong {
@@ -316,6 +321,7 @@
   [data-reveal].is-revealed {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+    will-change: auto;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -323,6 +329,7 @@
       opacity: 1;
       transform: none;
       transition: none;
+      will-change: auto;
     }
   }
 

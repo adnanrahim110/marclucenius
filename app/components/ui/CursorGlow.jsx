@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function CursorGlow() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const root = document.documentElement;
 
@@ -13,7 +16,8 @@ export default function CursorGlow() {
 
     const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
     const finePointer = window.matchMedia?.("(pointer: fine)")?.matches;
-    if (prefersReducedMotion || !finePointer) return;
+    const disableGlow = pathname?.startsWith("/blog/");
+    if (prefersReducedMotion || !finePointer || disableGlow) return;
 
     let rafId = 0;
     let nextX = window.innerWidth / 2;
@@ -41,8 +45,7 @@ export default function CursorGlow() {
       window.removeEventListener("pointermove", onMove);
       if (rafId) window.cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
-

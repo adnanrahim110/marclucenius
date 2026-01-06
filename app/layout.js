@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
               transform:
                 "translate3d(calc(var(--cursor-x) - (var(--cursor-glow-size) / 2)), calc(var(--cursor-y) - (var(--cursor-glow-size) / 2)), 0)",
               backgroundImage:
-                "radial-gradient(circle at 50% 50%, rgba(168, 138, 91, 0.22), transparent 62%)",
+                "radial-gradient(circle at 50% 50%, rgba(168, 138, 91, 0.16), transparent 62%)",
             }}
           />
           <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-charcoal-950/5" />
@@ -62,7 +62,7 @@ export default function RootLayout({ children }) {
         <CursorGlow />
         <ScrollReveals />
         <Navigation />
-        <main className="flex-grow pt-24">
+        <main className="grow pt-24">
           {children}
         </main>
         <Footer />
