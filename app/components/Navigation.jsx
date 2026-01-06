@@ -1,9 +1,9 @@
 "use client";
 
+import { ArrowRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ArrowRight, Menu, X } from "lucide-react";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -67,7 +67,11 @@ export default function Navigation() {
           }`}
         />
 
-        <div className={`relative max-w-7xl mx-auto px-6 ${scrolled ? "py-3" : "py-6"}`}>
+        <div
+          className={`relative max-w-7xl mx-auto px-6 ${
+            scrolled ? "py-3" : "py-6"
+          }`}
+        >
           <div className="flex items-center justify-between gap-4">
             <Link
               href="/"
@@ -76,9 +80,6 @@ export default function Navigation() {
             >
               <span className="font-serif text-2xl font-semibold text-charcoal-900 tracking-wide group-hover:text-earth-600 transition-colors">
                 Marc Lucenius
-              </span>
-              <span className="hidden sm:inline text-xs uppercase tracking-[0.22em] text-charcoal-400 group-hover:text-charcoal-600 transition-colors">
-                Rest for the Restless
               </span>
             </Link>
 
@@ -90,13 +91,17 @@ export default function Navigation() {
                     key={link.name}
                     href={link.href}
                     className={`text-sm font-medium tracking-wide transition-colors duration-300 relative group ${
-                      active ? "text-earth-700" : "text-charcoal-600 hover:text-charcoal-900"
+                      active
+                        ? "text-earth-700"
+                        : "text-charcoal-600 hover:text-charcoal-900"
                     }`}
                   >
                     {link.name}
                     <span
                       className={`absolute -bottom-1 left-0 w-full h-0.5 bg-earth-500 transform origin-left transition-transform duration-300 ${
-                        active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                        active
+                          ? "scale-x-100"
+                          : "scale-x-0 group-hover:scale-x-100"
                       }`}
                     />
                   </Link>
@@ -105,7 +110,10 @@ export default function Navigation() {
             </div>
 
             <div className="hidden lg:block">
-              <Link href="/book" className="btn-primary text-xs py-3 px-6 gap-2">
+              <Link
+                href="/book"
+                className="btn-primary text-xs py-3 px-6 gap-2"
+              >
                 Get the Book
                 <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
               </Link>
@@ -119,8 +127,14 @@ export default function Navigation() {
                 aria-controls="mobile-nav"
                 className="inline-flex items-center justify-center rounded-full border border-charcoal-200/60 bg-cream-50/60 backdrop-blur-md p-2 text-charcoal-800 shadow-sm shadow-charcoal-900/5 hover:bg-cream-50 hover:border-charcoal-300 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-earth-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100"
               >
-                <span className="sr-only">{isOpen ? "Close menu" : "Open menu"}</span>
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                <span className="sr-only">
+                  {isOpen ? "Close menu" : "Open menu"}
+                </span>
+                {isOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
               </button>
             </div>
           </div>
@@ -130,13 +144,18 @@ export default function Navigation() {
       <div
         id="mobile-nav"
         className={`lg:hidden fixed inset-0 z-50 transition-opacity duration-300 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
       >
-        <div className="absolute inset-0 bg-charcoal-950/35" onClick={() => setIsOpen(false)} />
+        <div
+          className="absolute inset-0 bg-charcoal-950/35"
+          onClick={() => setIsOpen(false)}
+        />
 
         <div
           className={`absolute left-0 right-0 top-0 transition-transform duration-500 ease-out ${
@@ -144,8 +163,14 @@ export default function Navigation() {
           }`}
         >
           <div className="relative bg-cream-50 border-b border-charcoal-200/40 shadow-[0_18px_60px_rgba(15,14,13,0.18)] overflow-hidden">
-            <div aria-hidden="true" className="absolute inset-0 bg-paper opacity-80" />
-            <div aria-hidden="true" className="absolute inset-0 bg-mesh-warm opacity-70" />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-paper opacity-80"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-mesh-warm opacity-70"
+            />
 
             <div className="relative max-w-7xl mx-auto px-6 pt-6 pb-10">
               <div className="flex items-center justify-between">
@@ -194,7 +219,10 @@ export default function Navigation() {
                   onClick={() => setIsOpen(false)}
                 >
                   Get the Book
-                  <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
+                  <ArrowRight
+                    className="w-4 h-4 opacity-90"
+                    aria-hidden="true"
+                  />
                 </Link>
               </div>
             </div>
