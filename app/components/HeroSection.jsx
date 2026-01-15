@@ -22,7 +22,7 @@ export default function HeroSection() {
         <div className="absolute bottom-[15%] left-[8%] w-48 h-48 opacity-[0.06] bg-earth-400 rounded-full blur-3xl parallax-strong"></div>
       </div>
 
-      <div className="relative z-10 max-w-6xl w-full mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center py-16">
+      <div className="relative z-10 max-w-6xl w-full mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center py-16">
         <div
           className={`flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 transition-all duration-1000 ease-out transform ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -82,7 +82,7 @@ export default function HeroSection() {
               href="/resources"
               className="btn-outline w-full sm:w-auto gap-2"
             >
-              Download 7-Day Reset
+              Download 21-Day Reset
               <Download className="w-4 h-4 opacity-90" aria-hidden="true" />
             </Link>
           </div>
