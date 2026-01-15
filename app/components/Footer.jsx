@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Instagram, Linkedin, Mail, Twitter } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   const socials = [
@@ -20,9 +20,9 @@ export default function Footer() {
               Marc Lucenius
             </h3>
             <p className="text-charcoal-500 text-sm leading-relaxed max-w-sm font-light">
-              Marc Lucenius is a pastor and former high-achieving executive who
-              burned out chasing success. Now, he helps others find the rhythm
-              of rest.
+              Marc Lucenius is a pastor, entrepreneur coach and loves finding
+              new things to do. He knows what ambition can do to the heart and
+              enjoys helping others find a rhythm of rest.
             </p>
             <div className="flex space-x-3 pt-2">
               {socials.map((social) => (
@@ -32,7 +32,10 @@ export default function Footer() {
                   className="group w-11 h-11 border border-charcoal-300/80 rounded-full flex items-center justify-center text-charcoal-600 bg-cream-50/50 backdrop-blur-sm hover:text-cream-100 hover:border-charcoal-800 hover:bg-charcoal-900 transition-all duration-300 shadow-sm shadow-charcoal-900/5 hover:shadow-md hover:shadow-charcoal-900/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-earth-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-200"
                 >
                   <span className="sr-only">{social.name}</span>
-                  <social.icon className="w-5 h-5 group-hover:scale-[1.03] transition-transform" aria-hidden="true" />
+                  <social.icon
+                    className="w-5 h-5 group-hover:scale-[1.03] transition-transform"
+                    aria-hidden="true"
+                  />
                 </a>
               ))}
             </div>
@@ -75,7 +78,10 @@ export default function Footer() {
               <form className="flex flex-col space-y-3">
                 <label className="relative">
                   <span className="sr-only">Email address</span>
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal-400" aria-hidden="true" />
+                  <Mail
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal-400"
+                    aria-hidden="true"
+                  />
                   <input
                     type="email"
                     placeholder="Your email address"

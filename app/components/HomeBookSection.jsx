@@ -1,11 +1,14 @@
+import { ArrowRight, Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, ArrowRight } from "lucide-react";
 import SpotlightCard from "./ui/SpotlightCard";
 
 export default function HomeBookSection() {
   return (
-    <section className="section-padding bg-cream-50 relative overflow-hidden" data-reveal>
+    <section
+      className="section-padding bg-cream-50 relative overflow-hidden"
+      data-reveal
+    >
       <div className="absolute top-0 right-0 w-96 h-96 bg-earth-200/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none parallax-soft"></div>
       <div className="absolute inset-0 bg-mesh-warm opacity-60 pointer-events-none"></div>
 
@@ -38,8 +41,8 @@ export default function HomeBookSection() {
                 .
               </h2>
               <p className="text-lg text-charcoal-500 leading-relaxed font-light">
-                If you love getting things done but feel your soul getting
-                thinner, this book is for you.
+                We can chase after our ambitions without succumbing to
+                exhaustion
               </p>
             </div>
 
@@ -55,7 +58,10 @@ export default function HomeBookSection() {
                 ].map((item, i) => (
                   <div key={i} className="flex items-start space-x-4">
                     <div className="shrink-0 w-6 h-6 rounded-full bg-charcoal-800 flex items-center justify-center mt-0.5">
-                      <Check className="w-4 h-4 text-cream-100" aria-hidden="true" />
+                      <Check
+                        className="w-4 h-4 text-cream-100"
+                        aria-hidden="true"
+                      />
                     </div>
                     <span className="text-charcoal-600 font-light leading-relaxed">
                       {item}

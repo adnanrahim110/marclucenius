@@ -1,7 +1,7 @@
+import { Download, Facebook, Instagram, Twitter } from "lucide-react";
 import Image from "next/image";
 import PageHero from "../components/PageHero";
 import SpotlightCard from "../components/ui/SpotlightCard";
-import { Download, Facebook, Instagram, Twitter } from "lucide-react";
 
 export const metadata = {
   title: "About Marc | Rest for the Restless",
@@ -15,7 +15,10 @@ export default function About() {
       <PageHero title="About Marc" subtitle="The Story" />
 
       <section className="section-padding relative overflow-hidden" data-reveal>
-        <div aria-hidden="true" className="absolute inset-0 bg-mesh-warm opacity-60 pointer-events-none" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-mesh-warm opacity-60 pointer-events-none"
+        />
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start relative z-10">
           <div className="relative">
             <div className="sticky top-32">
@@ -37,10 +40,6 @@ export default function About() {
                   Chester, Pennsylvania, and the author of{" "}
                   <em className="text-charcoal-800">Rest for the Restless</em>.
                 </p>
-                <button className="btn-subtle w-full text-xs gap-2">
-                  <Download className="w-4 h-4 text-charcoal-600" aria-hidden="true" />
-                  Download Press Kit & Headshots
-                </button>
               </SpotlightCard>
             </div>
           </div>
@@ -78,7 +77,7 @@ export default function About() {
               </p>
               <p>
                 <em className="text-charcoal-800">Rest for the Restless</em> is
-                the story of that journey. It's written for every believer who
+                the story of that journey. It's written for every people who
                 wants to serve God wholeheartedly without losing themselves in
                 the process.
               </p>

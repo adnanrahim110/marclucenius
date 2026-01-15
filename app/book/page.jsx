@@ -1,10 +1,10 @@
+import { ArrowRight, Check, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import EndorsementBanner from "../components/EndorsementBanner";
 import PageHero from "../components/PageHero";
 import SpotlightCard from "../components/ui/SpotlightCard";
-import EndorsementBanner from "../components/EndorsementBanner";
 import WhoIsThisFor from "../components/WhoIsThisFor";
-import { ArrowRight, Check, Sparkles } from "lucide-react";
 
 export const metadata = {
   title: "The Book | Rest for the Restless",
@@ -17,7 +17,10 @@ export default function Book() {
       <PageHero title="The Book" subtitle="Rest for the Restless" />
 
       <section className="section-padding overflow-hidden relative" data-reveal>
-        <div aria-hidden="true" className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none"
+        />
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
             <div className="relative flex justify-center group">
@@ -38,13 +41,13 @@ export default function Book() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl md:text-4xl font-serif text-charcoal-900 leading-tight mb-4">
-                  You don't need less ambition.{" "}
+                  Its not your ambition,{" "}
                   <span className="italic text-earth-600">
-                    You need less restlessness.
+                    its your restlessness
                   </span>
                 </h2>
                 <p className="text-lg text-charcoal-500 leading-relaxed font-light">
-                  This book is for believers who want to show up to life with
+                  This book is for people who want to show up to life with
                   everything God has given without living exhausted, anxious, or
                   endlessly driven by inner pressure.
                 </p>
@@ -102,7 +105,10 @@ export default function Book() {
                   "A hopeful vision of ambition surrendered to Jesus",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start text-charcoal-600">
-                    <Check className="w-4 h-4 text-earth-600 mr-3 mt-0.5 shrink-0" aria-hidden="true" />
+                    <Check
+                      className="w-4 h-4 text-earth-600 mr-3 mt-0.5 shrink-0"
+                      aria-hidden="true"
+                    />
                     <span className="leading-relaxed">{item}</span>
                   </li>
                 ))}

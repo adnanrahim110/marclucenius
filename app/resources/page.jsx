@@ -1,6 +1,12 @@
+import {
+  ArrowRight,
+  BookOpen,
+  CalendarDays,
+  Headphones,
+  Users,
+} from "lucide-react";
 import PageHero from "../components/PageHero";
 import SpotlightCard from "../components/ui/SpotlightCard";
-import { ArrowRight, BookOpen, CalendarDays, Headphones, Users } from "lucide-react";
 
 export const metadata = {
   title: "Resources | Rest for the Restless",
@@ -13,16 +19,15 @@ export default function Resources() {
       <PageHero title="Resources" subtitle="Free Tools" />
 
       <section className="section-padding relative" data-reveal>
-        <div aria-hidden="true" className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none"
+        />
         <div className="max-w-5xl mx-auto space-y-12 relative z-10">
-          {/* Free Chapter */}
           <SpotlightCard className="p-8 md:p-10 flex flex-col md:flex-row gap-10 items-center">
             <div className="flex-1 space-y-4">
-              <span className="text-earth-600 font-semibold uppercase tracking-widest text-xs">
-                Free Chapter
-              </span>
               <h2 className="text-2xl md:text-3xl font-serif text-charcoal-900">
-                Free Chapter + Reflection Guide
+                Free Chapter
               </h2>
               <p className="text-charcoal-500 font-light leading-relaxed">
                 Get Chapter One of{" "}
@@ -34,9 +39,15 @@ export default function Resources() {
                 <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
               </button>
             </div>
-            <div className="w-full md:w-1/3 aspect-[3/4] rounded-xl border border-cream-300 bg-cream-200 relative overflow-hidden">
-              <div aria-hidden="true" className="absolute inset-0 bg-linear-to-tr from-cream-200 via-cream-50 to-earth-100 opacity-90" />
-              <div aria-hidden="true" className="absolute inset-0 bg-paper opacity-50" />
+            <div className="w-full md:w-1/3 aspect-3/4 rounded-xl border border-cream-300 bg-cream-200 relative overflow-hidden">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-linear-to-tr from-cream-200 via-cream-50 to-earth-100 opacity-90"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-paper opacity-50"
+              />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-14 h-14 rounded-full bg-cream-50 border border-cream-300 flex items-center justify-center text-earth-600 shadow-sm shadow-charcoal-900/5">
                   <BookOpen className="w-6 h-6" aria-hidden="true" />
@@ -54,20 +65,30 @@ export default function Resources() {
                 Daily Practice
               </span>
               <h2 className="text-2xl md:text-3xl font-serif text-charcoal-900">
-                7-Day Rest Reset
+                21-Day Restoration Resolution
               </h2>
               <p className="text-charcoal-500 font-light leading-relaxed">
                 A simple, daily practice designed to help you slow down,
                 breathe, and experience the presence of Jesus in practical ways.
               </p>
-              <button className="btn-primary gap-2">
-                Get the 7-Day Reset
+              <a
+                href="http://www.youtube.com/@938Church"
+                target="_blank"
+                className="btn-primary gap-2"
+              >
+                Get the 21-Day Restoration Resolution
                 <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
-              </button>
+              </a>
             </div>
             <div className="w-full md:w-1/4 aspect-square rounded-full border border-cream-300 bg-cream-200 relative overflow-hidden flex items-center justify-center">
-              <div aria-hidden="true" className="absolute inset-0 bg-linear-to-tr from-cream-200 via-cream-50 to-earth-100 opacity-90" />
-              <div aria-hidden="true" className="absolute inset-0 bg-paper opacity-45" />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-linear-to-tr from-cream-200 via-cream-50 to-earth-100 opacity-90"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-paper opacity-45"
+              />
               <div className="relative w-14 h-14 rounded-full bg-cream-50 border border-cream-300 flex items-center justify-center text-earth-600 shadow-sm shadow-charcoal-900/5">
                 <CalendarDays className="w-6 h-6" aria-hidden="true" />
               </div>

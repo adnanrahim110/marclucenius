@@ -1,7 +1,7 @@
+import { ArrowRight, Check, Sparkles } from "lucide-react";
 import Link from "next/link";
 import PageHero from "../components/PageHero";
 import SpotlightCard from "../components/ui/SpotlightCard";
-import { ArrowRight, Check, Sparkles } from "lucide-react";
 
 export const metadata = {
   title: "Coaching | Rest for the Restless",
@@ -14,7 +14,10 @@ export default function Coaching() {
       <PageHero title="Coaching" subtitle="Work with Marc" />
 
       <section className="section-padding relative" data-reveal>
-        <div aria-hidden="true" className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none"
+        />
         <div className="max-w-4xl mx-auto text-center mb-16">
           <p className="text-xl md:text-2xl text-charcoal-600 font-serif leading-relaxed italic">
             Marc offers one-on-one and small group coaching for leaders,
@@ -35,7 +38,7 @@ export default function Coaching() {
             </p>
             <ul className="space-y-2 mb-8">
               {[
-                "6 one-on-one sessions",
+                "10 one-on-one sessions",
                 "Personalized action plan",
                 "Email support between sessions",
               ].map((item, i) => (
@@ -43,7 +46,10 @@ export default function Coaching() {
                   key={i}
                   className="flex items-center text-charcoal-600 text-sm"
                 >
-                  <Check className="w-4 h-4 text-earth-600 mr-3" aria-hidden="true" />
+                  <Check
+                    className="w-4 h-4 text-earth-600 mr-3"
+                    aria-hidden="true"
+                  />
                   {item}
                 </li>
               ))}
@@ -67,7 +73,7 @@ export default function Coaching() {
             </p>
             <ul className="space-y-2 mb-8">
               {[
-                "8 group sessions",
+                "10 group sessions",
                 "Facilitation guide",
                 "Shared resources & community",
               ].map((item, i) => (
@@ -75,7 +81,10 @@ export default function Coaching() {
                   key={i}
                   className="flex items-center text-charcoal-600 text-sm"
                 >
-                  <Check className="w-4 h-4 text-earth-600 mr-3" aria-hidden="true" />
+                  <Check
+                    className="w-4 h-4 text-earth-600 mr-3"
+                    aria-hidden="true"
+                  />
                   {item}
                 </li>
               ))}
@@ -83,7 +92,10 @@ export default function Coaching() {
 
             <div className="mt-8 border-t border-charcoal-200/60 pt-6">
               <p className="text-xs uppercase tracking-widest text-charcoal-500 mb-3 flex items-center justify-center gap-2">
-                <Sparkles className="w-4 h-4 text-earth-600" aria-hidden="true" />
+                <Sparkles
+                  className="w-4 h-4 text-earth-600"
+                  aria-hidden="true"
+                />
                 Cohort experience + community
               </p>
               <button className="btn-primary w-full gap-2">

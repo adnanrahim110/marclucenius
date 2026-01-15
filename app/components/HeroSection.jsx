@@ -1,9 +1,9 @@
 "use client";
 
+import { ArrowDown, ArrowRight, Download, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight, Download, Sparkles } from "lucide-react";
 
 export default function HeroSection() {
   const [loaded, setLoaded] = useState(false);
@@ -78,20 +78,13 @@ export default function HeroSection() {
               Get the Book
               <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
             </Link>
-            <Link href="/resources" className="btn-outline w-full sm:w-auto gap-2">
+            <Link
+              href="/resources"
+              className="btn-outline w-full sm:w-auto gap-2"
+            >
               Download 7-Day Reset
               <Download className="w-4 h-4 opacity-90" aria-hidden="true" />
             </Link>
-          </div>
-
-          <div
-            className="pt-6 flex items-center gap-4 text-charcoal-400 animate-fade-in-up"
-            style={{ animationDelay: "1s" }}
-          >
-            <div className="h-px w-16 bg-charcoal-300"></div>
-            <span className="font-serif italic text-sm">
-              "A must-read for the modern soul."
-            </span>
           </div>
 
           <div className="hidden lg:flex items-center gap-3 pt-2 text-charcoal-400">

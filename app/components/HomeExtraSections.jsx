@@ -1,11 +1,14 @@
-import Link from "next/link";
 import { ArrowRight, Download, Mic } from "lucide-react";
+import Link from "next/link";
 import SpotlightCard from "./ui/SpotlightCard";
 
 export default function HomeExtraSections() {
   return (
     <>
-      <section className="section-padding bg-earth-100/50 relative overflow-hidden" data-reveal>
+      <section
+        className="section-padding bg-earth-100/50 relative overflow-hidden"
+        data-reveal
+      >
         <div className="absolute inset-0 bg-paper opacity-30 pointer-events-none"></div>
         <div className="absolute inset-0 bg-mesh-warm opacity-70 pointer-events-none"></div>
 
@@ -14,7 +17,7 @@ export default function HomeExtraSections() {
             Free Resource
           </span>
           <h2 className="text-3xl md:text-4xl font-serif text-charcoal-900 mb-6">
-            Start a 7-Day Rest Reset
+            Start a 21-Days Rest Reset
           </h2>
           <p className="text-lg text-charcoal-500 font-light mb-10 max-w-xl mx-auto">
             Short, practical daily practices designed to help you slow down,
@@ -44,7 +47,10 @@ export default function HomeExtraSections() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           <SpotlightCard className="relative rounded-xl overflow-hidden aspect-4/3 group bg-cream-200 border-cream-300">
             <div className="absolute inset-0 bg-linear-to-tr from-cream-200 via-cream-50 to-earth-100 opacity-90" />
-            <div aria-hidden="true" className="absolute inset-0 bg-paper opacity-50" />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-paper opacity-50"
+            />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-10">
               <div className="w-14 h-14 rounded-full bg-cream-50 border border-cream-300 flex items-center justify-center text-earth-600 shadow-sm shadow-charcoal-900/5 mb-5">
                 <Mic className="w-6 h-6" aria-hidden="true" />
@@ -53,7 +59,8 @@ export default function HomeExtraSections() {
                 Speaking & Events
               </span>
               <span className="text-charcoal-500 text-sm font-light max-w-sm">
-                Invite Marc for a message on ambition, rest, and sustainable discipleship.
+                Invite Marc for a message on ambition, rest, and sustainable
+                discipleship.
               </span>
             </div>
           </SpotlightCard>
@@ -74,7 +81,10 @@ export default function HomeExtraSections() {
               className="btn-outline inline-flex items-center group gap-2"
             >
               Inquire About Speaking
-              <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+              <ArrowRight
+                className="h-4 w-4 transform group-hover:translate-x-1 transition-transform"
+                aria-hidden="true"
+              />
             </Link>
           </div>
         </div>

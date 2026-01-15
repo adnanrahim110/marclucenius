@@ -1,14 +1,23 @@
 import { Quote } from "lucide-react";
 
 export default function EndorsementBanner({
-  quote = "In a world that celebrates burnout, Marc offers a different way — a way that leads to peace, longevity, and joy. This book is the exhale you’ve been waiting for.",
+  quote = "In a world that celebrates burnout,Marc points us to Jesus who offers us a different way: a way that leads to peace, longevity, and joy. This book is the exhale you’ve been waiting for.",
   attribution = "— A fellow pastor & friend",
   eyebrow = "Endorsement",
 }) {
   return (
-    <section className="relative py-16 md:py-20 bg-primary-950 overflow-hidden" data-reveal>
-      <div aria-hidden="true" className="absolute inset-0 bg-mesh-ink opacity-80" />
-      <div aria-hidden="true" className="absolute inset-0 bg-linear-to-b from-primary-950/0 via-primary-950/40 to-primary-950" />
+    <section
+      className="relative py-16 md:py-20 bg-primary-950 overflow-hidden"
+      data-reveal
+    >
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-mesh-ink opacity-80"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-linear-to-b from-primary-950/0 via-primary-950/40 to-primary-950"
+      />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <div className="text-center mb-8">
@@ -18,7 +27,10 @@ export default function EndorsementBanner({
         </div>
 
         <div className="relative border border-primary-800/80 rounded-2xl bg-primary-900/45 shadow-[0_30px_80px_rgba(0,0,0,0.35)] overflow-hidden">
-          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(520px_circle_at_50%_0%,rgba(168,138,91,0.25),transparent_55%)]" />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[radial-gradient(520px_circle_at_50%_0%,rgba(168,138,91,0.25),transparent_55%)]"
+          />
           <div className="relative p-10 md:p-14 text-center">
             <div className="flex items-center justify-center mb-8">
               <div className="w-14 h-14 rounded-full border border-primary-800/80 bg-primary-950/40 flex items-center justify-center text-accent-400 shadow-sm shadow-black/30">
