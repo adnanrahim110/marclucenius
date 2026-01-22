@@ -1,6 +1,13 @@
+import {
+  ArrowRight,
+  Building2,
+  CalendarDays,
+  Check,
+  Mail,
+  User,
+} from "lucide-react";
 import PageHero from "../components/PageHero";
 import SpotlightCard from "../components/ui/SpotlightCard";
-import { ArrowRight, Building2, CalendarDays, Check, Mail, User } from "lucide-react";
 
 export const metadata = {
   title: "Speaking | Rest for the Restless",
@@ -10,10 +17,18 @@ export const metadata = {
 export default function Speaking() {
   return (
     <div className="min-h-screen">
-      <PageHero title="Speaking" subtitle="Invite Marc" />
+      <PageHero
+        bg="bg-[url(/imgs/speaking.png)]"
+        className="min-h-155 flex items-center justify-start"
+        tone="dark"
+        title="Speaking"
+      />
 
       <section className="section-padding relative" data-reveal>
-        <div aria-hidden="true" className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none"
+        />
         <div className="max-w-3xl mx-auto text-center mb-16">
           <p className="text-xl md:text-2xl text-charcoal-600 font-serif leading-relaxed italic">
             Marc teaches on ambition, rest, the gospel, recovery and sustainable
@@ -55,6 +70,18 @@ export default function Speaking() {
                     description:
                       "How to pursue big vision without burning out your soul, family, or faith.",
                   },
+                  {
+                    id: "5",
+                    title: "Gospel",
+                    description:
+                      "how the grace of God is the fountain for an evergreen life of faith and impact",
+                  },
+                  {
+                    id: "6",
+                    title: "Leadership",
+                    description:
+                      "Leaders secure, and rooted in grace can lead forward and stand in the face of every calling",
+                  },
                 ].map((topic) => (
                   <SpotlightCard key={topic.id} className="group p-7">
                     <div className="flex items-start gap-5">
@@ -83,15 +110,18 @@ export default function Speaking() {
                 {[
                   "Clear biblical teaching",
                   "Practical next steps",
-                  "Honest stories from real ministry life",
+                  "Honest stories from real life",
                   "A relatable, pastoral tone",
-                  "Hope for Christians who feel stuck",
+                  "Hope for people who feel stuck",
                 ].map((item, i) => (
                   <li
                     key={i}
                     className="flex items-center text-charcoal-600 text-sm"
                   >
-                    <Check className="w-4 h-4 text-earth-600 mr-3" aria-hidden="true" />
+                    <Check
+                      className="w-4 h-4 text-earth-600 mr-3"
+                      aria-hidden="true"
+                    />
                     {item}
                   </li>
                 ))}
@@ -118,7 +148,10 @@ export default function Speaking() {
                       Name
                     </label>
                     <div className="relative">
-                      <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal-400" aria-hidden="true" />
+                      <User
+                        className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal-400"
+                        aria-hidden="true"
+                      />
                       <input
                         type="text"
                         className="w-full bg-cream-100/70 border border-charcoal-200/70 rounded-md pl-10 pr-4 py-3 text-charcoal-800 focus:outline-none focus:border-earth-500/70 focus:ring-2 focus:ring-earth-500/20 transition-all"
@@ -130,7 +163,10 @@ export default function Speaking() {
                       Email
                     </label>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal-400" aria-hidden="true" />
+                      <Mail
+                        className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal-400"
+                        aria-hidden="true"
+                      />
                       <input
                         type="email"
                         className="w-full bg-cream-100/70 border border-charcoal-200/70 rounded-md pl-10 pr-4 py-3 text-charcoal-800 focus:outline-none focus:border-earth-500/70 focus:ring-2 focus:ring-earth-500/20 transition-all"
@@ -143,7 +179,10 @@ export default function Speaking() {
                     Church / Organization
                   </label>
                   <div className="relative">
-                    <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal-400" aria-hidden="true" />
+                    <Building2
+                      className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal-400"
+                      aria-hidden="true"
+                    />
                     <input
                       type="text"
                       className="w-full bg-cream-100/70 border border-charcoal-200/70 rounded-md pl-10 pr-4 py-3 text-charcoal-800 focus:outline-none focus:border-earth-500/70 focus:ring-2 focus:ring-earth-500/20 transition-all"
@@ -155,7 +194,10 @@ export default function Speaking() {
                     Date & Event Details
                   </label>
                   <div className="relative">
-                    <CalendarDays className="absolute left-3 top-4 w-4 h-4 text-charcoal-400" aria-hidden="true" />
+                    <CalendarDays
+                      className="absolute left-3 top-4 w-4 h-4 text-charcoal-400"
+                      aria-hidden="true"
+                    />
                     <textarea
                       rows="4"
                       className="w-full bg-cream-100/70 border border-charcoal-200/70 rounded-md pl-10 pr-4 py-3 text-charcoal-800 focus:outline-none focus:border-earth-500/70 focus:ring-2 focus:ring-earth-500/20 transition-all"
@@ -164,7 +206,10 @@ export default function Speaking() {
                 </div>
                 <button className="btn-primary w-full mt-4 gap-2">
                   Inquire About Speaking
-                  <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
+                  <ArrowRight
+                    className="w-4 h-4 opacity-90"
+                    aria-hidden="true"
+                  />
                 </button>
               </form>
             </SpotlightCard>

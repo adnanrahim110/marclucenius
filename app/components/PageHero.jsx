@@ -1,26 +1,41 @@
 import React from "react";
+import { cx } from "../lib/cx";
 
-export default function PageHero({ title, subtitle, tone = "light", className = "" }) {
+export default function PageHero({
+  title,
+  subtitle,
+  tone = "light",
+  className = "",
+  bg,
+}) {
   const isDark = tone === "dark";
 
   return (
     <section
       className={`relative py-20 lg:py-28 overflow-hidden ${isDark ? "bg-primary-950" : "bg-cream-200"} ${className}`}
     >
+      {bg && (
+        <div
+          className={cx(
+            "absolute inset-0 z-5 pointer-events-none bg-cover bg-center bg-no-repeat",
+            bg,
+          )}
+        />
+      )}
       <div
-        className={`absolute inset-0 z-0 pointer-events-none ${
+        className={`absolute inset-0 z-6 pointer-events-none ${
           isDark ? "bg-mesh-ink opacity-90" : "bg-paper opacity-70"
         }`}
       />
       <div
-        className={`absolute -inset-10 z-0 pointer-events-none parallax-soft ${
+        className={`absolute -inset-10 z-6 pointer-events-none parallax-soft ${
           isDark
             ? "bg-[radial-gradient(900px_500px_at_50%_0%,rgba(168,138,91,0.20),transparent_60%)] opacity-90"
             : "bg-mesh-warm opacity-70"
         }`}
       />
       <div
-        className={`absolute inset-0 z-0 pointer-events-none ${
+        className={`absolute inset-0 z-6 pointer-events-none ${
           isDark
             ? "bg-linear-to-b from-primary-950/10 via-primary-950/40 to-primary-950 opacity-100"
             : "bg-linear-to-b from-cream-200/30 via-transparent to-transparent opacity-100"

@@ -1,8 +1,8 @@
 import { Quote } from "lucide-react";
 
 export default function EndorsementBanner({
-  quote = "In a world that celebrates burnout,Marc points us to Jesus who offers us a different way: a way that leads to peace, longevity, and joy. This book is the exhale you’ve been waiting for.",
-  attribution = "— A fellow pastor & friend",
+  quote = "You have made us for yourselves and our hearts are restless until they find their rest in thee.",
+  attribution = "— Austine of Hippo",
   eyebrow = "Endorsement",
 }) {
   return (

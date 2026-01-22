@@ -61,9 +61,6 @@ export default function Coaching() {
           </SpotlightCard>
 
           <SpotlightCard className="p-8 flex flex-col border-2 border-earth-400/70 relative">
-            <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-earth-500 text-cream-100 text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">
-              Popular
-            </span>
             <h3 className="text-2xl font-serif text-charcoal-900 mb-4">
               Small Group Coaching
             </h3>
@@ -74,7 +71,7 @@ export default function Coaching() {
             <ul className="space-y-2 mb-8">
               {[
                 "10 group sessions",
-                "Facilitation guide",
+                "Empowered personal journey with others",
                 "Shared resources & community",
               ].map((item, i) => (
                 <li
@@ -110,7 +107,7 @@ export default function Coaching() {
           <p className="text-charcoal-500 font-light">
             Not sure which is right for you?{" "}
             <Link
-              href="/speaking"
+              href="mailto:hello@marclucenius.com"
               className="text-earth-600 underline underline-offset-4 font-medium hover:text-charcoal-900"
             >
               Contact Marc directly
