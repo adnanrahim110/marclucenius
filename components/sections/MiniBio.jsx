@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Button from "@/components/ui/Button";
 
 export default function MiniBio() {
   return (
@@ -36,9 +36,9 @@ export default function MiniBio() {
               healthy leadership, Marc helps high-capacity individuals find a
               rhythm of rest that propels them into their greatest purpose.
             </p>
-            <Link href="/about" className="btn-outline">
+            <Button href="/about" variant="outline">
               Read His Full Story
-            </Link>
+            </Button>
           </div>
         </div>
       </div>

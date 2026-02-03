@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
 
 export default function HomeAuthorSection() {
   return (
-    <section className="section-padding bg-cream-100 relative overflow-hidden" data-reveal>
+    <Reveal as="section" className="section-padding bg-cream-100 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-64 h-64 bg-earth-200/30 rounded-full blur-3xl pointer-events-none parallax-soft"></div>
       <div className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none"></div>
 
@@ -20,7 +21,7 @@ export default function HomeAuthorSection() {
             <div className="w-24 h-1 bg-earth-400 mt-6 rounded-full"></div>
           </div>
 
-          <div className="space-y-5 text-charcoal-600 text-lg font-light leading-relaxed">
+          <div className="space-y-6 text-charcoal-600 text-lg font-light leading-relaxed">
             <p>
               I'm a husband, dad, and the lead pastor of{" "}
               <strong className="font-medium text-charcoal-800">
@@ -72,6 +73,6 @@ export default function HomeAuthorSection() {
           </div>
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }

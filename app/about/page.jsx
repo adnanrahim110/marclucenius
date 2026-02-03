@@ -1,7 +1,8 @@
 import { Download, Facebook, Instagram, Twitter } from "lucide-react";
 import Image from "next/image";
-import PageHero from "../components/PageHero";
-import SpotlightCard from "../components/ui/SpotlightCard";
+import PageHero from "@/components/layouts/PageHero";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import Reveal from "@/components/ui/Reveal";
 
 export const metadata = {
   title: "About Marc | Rest for the Restless",
@@ -11,10 +12,10 @@ export const metadata = {
 
 export default function About() {
   return (
-    <div className="min-h-screen">
+      <div className="min-h-screen">
       <PageHero title="About Marc" subtitle="The Story" />
 
-      <section className="section-padding relative overflow-hidden" data-reveal>
+      <Reveal as="section" className="section-padding relative overflow-hidden">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-mesh-warm opacity-60 pointer-events-none"
@@ -35,7 +36,7 @@ export default function About() {
                 <h3 className="text-earth-600 font-semibold uppercase tracking-widest text-xs mb-4">
                   Short Bio
                 </h3>
-                <p className="text-charcoal-600 text-sm leading-relaxed mb-5">
+                <p className="text-charcoal-600 text-sm leading-relaxed mb-6">
                   Marc Lucenius is the Lead Pastor of 938 Church in West
                   Chester, Pennsylvania, and the author of{" "}
                   <em className="text-charcoal-800">Rest for the Restless</em>.
@@ -113,7 +114,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 }

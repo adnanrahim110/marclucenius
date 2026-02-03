@@ -6,8 +6,10 @@ import {
   Mail,
   User,
 } from "lucide-react";
-import PageHero from "../components/PageHero";
-import SpotlightCard from "../components/ui/SpotlightCard";
+import PageHero from "@/components/layouts/PageHero";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 
 export const metadata = {
   title: "Speaking | Rest for the Restless",
@@ -24,7 +26,7 @@ export default function Speaking() {
         title="Speaking"
       />
 
-      <section className="section-padding relative" data-reveal>
+      <Reveal as="section" className="section-padding relative">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none"
@@ -83,8 +85,8 @@ export default function Speaking() {
                       "Leaders secure, and rooted in grace can lead forward and stand in the face of every calling",
                   },
                 ].map((topic) => (
-                  <SpotlightCard key={topic.id} className="group p-7">
-                    <div className="flex items-start gap-5">
+                  <SpotlightCard key={topic.id} className="group p-8">
+                    <div className="flex items-start gap-6">
                       <div className="shrink-0 w-11 h-11 rounded-full bg-cream-100 border border-cream-300 flex items-center justify-center text-earth-700 font-serif text-lg shadow-sm shadow-charcoal-900/5">
                         {topic.id}
                       </div>
@@ -102,8 +104,8 @@ export default function Speaking() {
               </div>
             </div>
 
-            <SpotlightCard className="p-7">
-              <h3 className="text-lg font-serif text-charcoal-900 mb-5">
+            <SpotlightCard className="p-8">
+              <h3 className="text-lg font-serif text-charcoal-900 mb-6">
                 What Audiences Can Expect
               </h3>
               <ul className="space-y-2">
@@ -144,7 +146,10 @@ export default function Speaking() {
               <form className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-xs text-charcoal-800 font-semibold uppercase tracking-wider">
+                    <label
+                      htmlFor="speaking-name"
+                      className="text-xs text-charcoal-800 font-semibold uppercase tracking-wider"
+                    >
                       Name
                     </label>
                     <div className="relative">
@@ -153,13 +158,20 @@ export default function Speaking() {
                         aria-hidden="true"
                       />
                       <input
+                        id="speaking-name"
+                        name="name"
+                        autoComplete="name"
                         type="text"
+                        required
                         className="w-full bg-cream-100/70 border border-charcoal-200/70 rounded-md pl-10 pr-4 py-3 text-charcoal-800 focus:outline-none focus:border-earth-500/70 focus:ring-2 focus:ring-earth-500/20 transition-all"
                       />
                     </div>
                   </div>
                   <div className="space-y-1">
-                    <label className="text-xs text-charcoal-800 font-semibold uppercase tracking-wider">
+                    <label
+                      htmlFor="speaking-email"
+                      className="text-xs text-charcoal-800 font-semibold uppercase tracking-wider"
+                    >
                       Email
                     </label>
                     <div className="relative">
@@ -168,14 +180,21 @@ export default function Speaking() {
                         aria-hidden="true"
                       />
                       <input
+                        id="speaking-email"
+                        name="email"
+                        autoComplete="email"
                         type="email"
+                        required
                         className="w-full bg-cream-100/70 border border-charcoal-200/70 rounded-md pl-10 pr-4 py-3 text-charcoal-800 focus:outline-none focus:border-earth-500/70 focus:ring-2 focus:ring-earth-500/20 transition-all"
                       />
                     </div>
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs text-charcoal-800 font-semibold uppercase tracking-wider">
+                  <label
+                    htmlFor="speaking-organization"
+                    className="text-xs text-charcoal-800 font-semibold uppercase tracking-wider"
+                  >
                     Church / Organization
                   </label>
                   <div className="relative">
@@ -184,13 +203,19 @@ export default function Speaking() {
                       aria-hidden="true"
                     />
                     <input
+                      id="speaking-organization"
+                      name="organization"
+                      autoComplete="organization"
                       type="text"
                       className="w-full bg-cream-100/70 border border-charcoal-200/70 rounded-md pl-10 pr-4 py-3 text-charcoal-800 focus:outline-none focus:border-earth-500/70 focus:ring-2 focus:ring-earth-500/20 transition-all"
                     />
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs text-charcoal-800 font-semibold uppercase tracking-wider">
+                  <label
+                    htmlFor="speaking-details"
+                    className="text-xs text-charcoal-800 font-semibold uppercase tracking-wider"
+                  >
                     Date & Event Details
                   </label>
                   <div className="relative">
@@ -199,23 +224,25 @@ export default function Speaking() {
                       aria-hidden="true"
                     />
                     <textarea
+                      id="speaking-details"
+                      name="details"
                       rows="4"
                       className="w-full bg-cream-100/70 border border-charcoal-200/70 rounded-md pl-10 pr-4 py-3 text-charcoal-800 focus:outline-none focus:border-earth-500/70 focus:ring-2 focus:ring-earth-500/20 transition-all"
                     ></textarea>
                   </div>
                 </div>
-                <button className="btn-primary w-full mt-4 gap-2">
+                <Button type="submit" className="w-full mt-4">
                   Inquire About Speaking
                   <ArrowRight
                     className="w-4 h-4 opacity-90"
                     aria-hidden="true"
                   />
-                </button>
+                </Button>
               </form>
             </SpotlightCard>
           </div>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import { Check } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+import Container from "@/components/ui/Container";
 
 export default function WhoIsThisFor() {
   const items = [
@@ -25,10 +27,7 @@ export default function WhoIsThisFor() {
   ];
 
   return (
-    <section
-      className="bg-primary-950 py-24 relative overflow-hidden"
-      data-reveal
-    >
+    <Reveal as="section" className="bg-primary-950 py-24 relative overflow-hidden">
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-mesh-ink opacity-80"
@@ -42,7 +41,7 @@ export default function WhoIsThisFor() {
         className="absolute inset-0 bg-linear-to-b from-primary-950/0 via-primary-950/35 to-primary-950"
       />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <Container size="7xl" pad className="relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <h3 className="text-4xl md:text-5xl font-serif text-white mb-8">
@@ -81,7 +80,7 @@ export default function WhoIsThisFor() {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Reveal>
   );
 }

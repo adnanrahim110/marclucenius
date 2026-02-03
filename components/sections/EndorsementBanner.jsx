@@ -1,4 +1,6 @@
 import { Quote } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
+import Container from "@/components/ui/Container";
 
 export default function EndorsementBanner({
   quote = "You have made us for yourselves and our hearts are restless until they find their rest in thee.",
@@ -6,10 +8,7 @@ export default function EndorsementBanner({
   eyebrow = "Endorsement",
 }) {
   return (
-    <section
-      className="relative py-16 md:py-20 bg-primary-950 overflow-hidden"
-      data-reveal
-    >
+    <Reveal as="section" className="relative py-16 md:py-20 bg-primary-950 overflow-hidden">
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-mesh-ink opacity-80"
@@ -19,7 +18,7 @@ export default function EndorsementBanner({
         className="absolute inset-0 bg-linear-to-b from-primary-950/0 via-primary-950/40 to-primary-950"
       />
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+      <Container size="5xl" pad className="relative z-10">
         <div className="text-center mb-8">
           <span className="text-xs font-semibold text-accent-300 uppercase tracking-widest">
             {eyebrow}
@@ -47,7 +46,7 @@ export default function EndorsementBanner({
             </p>
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Reveal>
   );
 }

@@ -206,57 +206,6 @@
     @apply bg-cream-50 border border-cream-300 shadow-xl shadow-charcoal-900/10 rounded-xl relative overflow-hidden;
   }
 
-  .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-4 bg-charcoal-900 text-cream-100 font-semibold uppercase tracking-widest text-sm rounded-sm transition-all duration-300 shadow-md shadow-charcoal-900/10 hover:bg-charcoal-800 hover:shadow-lg hover:shadow-charcoal-900/15 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-earth-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-outline {
-    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-charcoal-800 text-charcoal-800 font-semibold uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-charcoal-900 hover:text-cream-100 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-earth-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-subtle {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-cream-200 text-charcoal-700 font-medium text-sm rounded transition-all duration-300 hover:bg-cream-300 hover:shadow-md hover:shadow-charcoal-900/5 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-earth-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-primary::after,
-  .btn-outline::after,
-  .btn-subtle::after {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    width: 40%;
-    left: -50%;
-    background: linear-gradient(90deg,
-        transparent,
-        rgba(255, 255, 255, 0.32),
-        transparent);
-    transform: translateX(-140%) skewX(-18deg);
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .btn-primary:hover::after,
-  .btn-outline:hover::after,
-  .btn-subtle:hover::after {
-    animation: var(--animate-sheen);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-
-    .btn-primary:hover::after,
-    .btn-outline:hover::after,
-    .btn-subtle:hover::after {
-      animation: none;
-      opacity: 0;
-    }
-  }
-
   .divider-line {
     @apply h-px bg-linear-to-r from-transparent via-charcoal-300 to-transparent;
   }
@@ -301,45 +250,22 @@
     translate: 0 0;
   }
 
-  @media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  @media (prefers-reduced-motion: reduce),
+  (pointer: coarse) {
+
     .parallax-soft,
     .parallax-strong {
       translate: 0 0;
     }
   }
 
-  /* Scroll reveal (powered by ScrollReveals) */
-  [data-reveal] {
-    opacity: 0;
-    transform: translate3d(0, 14px, 0);
-    transition: transform 800ms cubic-bezier(0.2, 0.9, 0.2, 1),
-      opacity 800ms cubic-bezier(0.2, 0.9, 0.2, 1);
-    transition-delay: var(--reveal-delay, 0ms);
-    will-change: transform, opacity;
-  }
-
-  [data-reveal].is-revealed {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-    will-change: auto;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    [data-reveal] {
-      opacity: 1;
-      transform: none;
-      transition: none;
-      will-change: auto;
-    }
-  }
-
   /* Textured backgrounds for alternating (odd) sections */
-  .odd-sections-textured > section:nth-child(odd) {
+  .odd-sections-textured>section:nth-child(odd) {
     position: relative;
     isolation: isolate;
   }
 
-  .odd-sections-textured > section:nth-child(odd)::after {
+  .odd-sections-textured>section:nth-child(odd)::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -359,28 +285,26 @@
     0% {
       transform: translate3d(0, 0, 0);
     }
+
     25% {
       transform: translate3d(-1.25%, -0.75%, 0);
     }
+
     50% {
       transform: translate3d(-0.5%, 1%, 0);
     }
+
     75% {
       transform: translate3d(1%, 0.25%, 0);
     }
+
     100% {
       transform: translate3d(0, 0, 0);
     }
   }
 
-  .odd-sections-textured > section:nth-child(odd)::after {
+  .odd-sections-textured>section:nth-child(odd)::after {
     will-change: transform;
-  }
-
-  @media (prefers-reduced-motion: no-preference) and (pointer: fine) {
-    .odd-sections-textured > section:nth-child(odd)::after {
-      animation: grain-pan 26s linear infinite;
-    }
   }
 
   .odd-sections-textured>section:nth-child(odd).bg-primary-950::after,

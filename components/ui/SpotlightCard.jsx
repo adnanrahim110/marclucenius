@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { cx } from "../../lib/cx";
+import { cx } from "@/lib/cx";
 
 export default function SpotlightCard({
   as: As = "div",
@@ -19,7 +19,7 @@ export default function SpotlightCard({
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia?.(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     )?.matches;
     const finePointer = window.matchMedia?.("(pointer: fine)")?.matches;
     const canHover = window.matchMedia?.("(hover: hover)")?.matches;
@@ -92,10 +92,10 @@ export default function SpotlightCard({
         props.onPointerLeave?.(event);
       }}
       className={cx(
-        "group relative rounded-xl border border-charcoal-200/40 bg-cream-50 shadow-sm shadow-charcoal-900/5 transition-[transform,box-shadow,border-color] duration-500 transform-gpu",
+        "group relative overflow-hidden rounded-xl border border-charcoal-200/40 bg-cream-50 shadow-sm shadow-charcoal-900/5 transition-[transform,box-shadow,border-color] duration-500 transform-gpu",
         "transform-[translate3d(0,var(--lift,0px),0)_perspective(900px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))]",
         "hover:[--lift:-4px] hover:shadow-xl hover:shadow-charcoal-900/12 hover:border-earth-500/45",
-        className
+        className,
       )}
       {...(() => {
         const { onPointerEnter, onPointerLeave, onPointerMove, ...rest } =
@@ -107,12 +107,20 @@ export default function SpotlightCard({
         aria-hidden="true"
         className={cx(
           "pointer-events-none absolute inset-0",
-          spotlightClassName
+          spotlightClassName,
         )}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 bg-[radial-gradient(400px_circle_at_var(--spotlight-x)_var(--spotlight-y),rgba(168,138,91,0.22),transparent_58%)] group-hover:opacity-100"
+        className="pointer-events-none absolute left-0 top-0 opacity-0 transition-opacity duration-500 will-change-transform group-hover:opacity-100"
+        style={{
+          width: "520px",
+          height: "520px",
+          transform:
+            "translate3d(calc(var(--spotlight-x, 50%) - 260px), calc(var(--spotlight-y, 50%) - 260px), 0)",
+          backgroundImage:
+            "radial-gradient(circle, rgba(168, 138, 91, 0.22), transparent 60%)",
+        }}
       />
       <div
         aria-hidden="true"

@@ -5,8 +5,10 @@ import {
   Headphones,
   Users,
 } from "lucide-react";
-import PageHero from "../components/PageHero";
-import SpotlightCard from "../components/ui/SpotlightCard";
+import PageHero from "@/components/layouts/PageHero";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 
 export const metadata = {
   title: "Resources | Rest for the Restless",
@@ -18,7 +20,7 @@ export default function Resources() {
     <div className="min-h-screen">
       <PageHero title="Resources" subtitle="Free Tools" />
 
-      <section className="section-padding relative" data-reveal>
+      <Reveal as="section" className="section-padding relative">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none"
@@ -34,10 +36,10 @@ export default function Resources() {
                 <em className="text-charcoal-700">Rest for the Restless</em>{" "}
                 plus a guided reflection tool for personal or group use.
               </p>
-              <button className="btn-primary gap-2">
+              <Button className="w-full md:w-auto">
                 Download Free Chapter
                 <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
-              </button>
+              </Button>
             </div>
             <div className="w-full md:w-1/3 aspect-3/4 rounded-xl border border-cream-300 bg-cream-200 relative overflow-hidden">
               <div
@@ -71,14 +73,14 @@ export default function Resources() {
                 A simple, daily practice designed to help you slow down,
                 breathe, and experience the presence of Jesus in practical ways.
               </p>
-              <a
+              <Button
                 href="http://www.youtube.com/@938Church"
                 target="_blank"
-                className="btn-primary gap-2"
+                className="w-full md:w-auto"
               >
                 Get the 21-Day Restoration Resolution
                 <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
-              </a>
+              </Button>
             </div>
             <div className="w-full md:w-1/4 aspect-square rounded-full border border-cream-300 bg-cream-200 relative overflow-hidden flex items-center justify-center">
               <div
@@ -108,10 +110,10 @@ export default function Resources() {
                 A 4-6 week discussion guide for churches and groups who want to
                 explore rest, ambition, and the way of Jesus.
               </p>
-              <button className="btn-outline w-full text-center text-sm gap-2">
+              <Button variant="outline" className="w-full text-center" size="md">
                 Download Group Guide
                 <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
-              </button>
+              </Button>
               <div className="mt-6 flex items-center gap-3 text-charcoal-400 text-xs uppercase tracking-widest">
                 <Users className="w-4 h-4" aria-hidden="true" />
                 Built for groups & teams
@@ -129,10 +131,10 @@ export default function Resources() {
                 Listen to sermons and messages connected to the themes of the
                 book.
               </p>
-              <button className="btn-outline w-full text-center text-sm gap-2">
+              <Button variant="outline" className="w-full text-center" size="md">
                 View Sermons
                 <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
-              </button>
+              </Button>
               <p className="text-xs text-center mt-3 text-charcoal-400">
                 (Links to 938 Church messages)
               </p>
@@ -143,7 +145,7 @@ export default function Resources() {
             </SpotlightCard>
           </div>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import { Cormorant_Garamond, Great_Vibes, Lato, Playfair_Display } from "next/font/google";
-import Footer from "./components/Footer";
-import Navigation from "./components/Navigation";
-import CursorGlow from "./components/ui/CursorGlow";
-import ScrollReveals from "./components/ui/ScrollReveals";
+import Footer from "@/components/layouts/Footer";
+import Navigation from "@/components/layouts/Navigation";
+import CursorGlow from "@/components/ui/CursorGlow";
+import MotionProvider from "@/components/ui/MotionProvider";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -59,13 +59,12 @@ export default function RootLayout({ children }) {
           <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-charcoal-950/5" />
           <div className="absolute inset-0 mask-fade-y opacity-70" />
         </div>
-        <CursorGlow />
-        <ScrollReveals />
-        <Navigation />
-        <main className="grow pt-24">
-          {children}
-        </main>
-        <Footer />
+        <MotionProvider>
+          <CursorGlow />
+          <Navigation />
+          <main className="grow pt-24">{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

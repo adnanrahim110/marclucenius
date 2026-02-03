@@ -1,5 +1,6 @@
 import { Flame, HandHeart, Leaf, Trophy } from "lucide-react";
-import SpotlightCard from "./ui/SpotlightCard";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import Reveal from "@/components/ui/Reveal";
 
 export default function InfoGrid() {
   const items = [
@@ -30,7 +31,7 @@ export default function InfoGrid() {
   ];
 
   return (
-    <section className="relative z-10 bg-primary-950 pb-24 px-6 overflow-hidden" data-reveal>
+    <Reveal as="section" className="relative z-10 bg-primary-950 pb-24 px-6 overflow-hidden">
       <div aria-hidden="true" className="absolute inset-0 bg-mesh-ink opacity-80" />
       <div
         aria-hidden="true"
@@ -46,7 +47,7 @@ export default function InfoGrid() {
           <h2 className="text-3xl md:text-4xl font-serif text-white leading-tight">
             Rest, without losing your drive.
           </h2>
-          <p className="text-primary-300 mt-5">
+          <p className="text-primary-300 mt-6">
             A grounded path for ambitious believers who want sustainable rhythms, not endless pressure.
           </p>
         </div>
@@ -77,6 +78,6 @@ export default function InfoGrid() {
           })}
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }

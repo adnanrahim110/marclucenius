@@ -1,13 +1,14 @@
 import { ArrowRight, Download, Mic } from "lucide-react";
-import Link from "next/link";
-import SpotlightCard from "./ui/SpotlightCard";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 
 export default function HomeExtraSections() {
   return (
     <>
-      <section
+      <Reveal
+        as="section"
         className="section-padding bg-earth-100/50 relative overflow-hidden"
-        data-reveal
       >
         <div className="absolute inset-0 bg-paper opacity-30 pointer-events-none"></div>
         <div className="absolute inset-0 bg-mesh-warm opacity-70 pointer-events-none"></div>
@@ -33,15 +34,15 @@ export default function HomeExtraSections() {
             <p className="text-charcoal-700 font-serif italic text-lg mb-6">
               “Get the Reset + ongoing insights to help you live rested.”
             </p>
-            <Link href="/resources" className="btn-primary w-full gap-2">
+            <Button href="/resources" className="w-full">
               Download Free Guide
               <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
-            </Link>
+            </Button>
           </SpotlightCard>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section-padding bg-cream-50 relative" data-reveal>
+      <Reveal as="section" className="section-padding bg-cream-50 relative">
         <div className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none"></div>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
@@ -52,7 +53,7 @@ export default function HomeExtraSections() {
               className="absolute inset-0 bg-paper opacity-50"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-10">
-              <div className="w-14 h-14 rounded-full bg-cream-50 border border-cream-300 flex items-center justify-center text-earth-600 shadow-sm shadow-charcoal-900/5 mb-5">
+              <div className="w-14 h-14 rounded-full bg-cream-50 border border-cream-300 flex items-center justify-center text-earth-600 shadow-sm shadow-charcoal-900/5 mb-6">
                 <Mic className="w-6 h-6" aria-hidden="true" />
               </div>
               <span className="text-charcoal-700 font-serif text-xl mb-2">
@@ -76,19 +77,16 @@ export default function HomeExtraSections() {
               Marc teaches on ambition, rest, and sustainable discipleship for
               churches, conferences, and leadership events.
             </p>
-            <Link
-              href="/speaking"
-              className="btn-outline inline-flex items-center group gap-2"
-            >
+            <Button href="/speaking" variant="outline" className="inline-flex group">
               Inquire About Speaking
               <ArrowRight
                 className="h-4 w-4 transform group-hover:translate-x-1 transition-transform"
                 aria-hidden="true"
               />
-            </Link>
+            </Button>
           </div>
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }

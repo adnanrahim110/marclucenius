@@ -1,3 +1,4 @@
+import Button from "@/components/ui/Button";
 import { Instagram, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 
@@ -66,12 +67,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="col-span-1 md:col-span-4 md:col-start-9">
+          <div className="col-span-1 md:col-span-5 md:col-start-8">
             <h4 className="text-xs font-semibold text-charcoal-900 uppercase tracking-widest mb-6">
               Stay Connected
             </h4>
             <div className="paper-card p-6">
-              <p className="text-charcoal-500 text-sm mb-5 font-light">
+              <p className="text-charcoal-500 text-sm mb-6 font-light">
                 Stay encouraged with monthly reflections, practices, and updates
                 on new resources.
               </p>
@@ -83,14 +84,19 @@ export default function Footer() {
                     aria-hidden="true"
                   />
                   <input
+                    id="footer-email"
+                    name="email"
+                    autoComplete="email"
+                    inputMode="email"
                     type="email"
                     placeholder="Your email address"
+                    required
                     className="w-full bg-cream-100/70 border border-charcoal-200/70 text-charcoal-800 pl-10 pr-4 py-3 text-sm rounded-md focus:outline-none focus:border-earth-500/70 focus:ring-2 focus:ring-earth-500/20 transition-all placeholder-charcoal-400"
                   />
                 </label>
-                <button className="btn-primary w-full text-xs">
-                  Join the Email List
-                </button>
+                <Button type="submit" className="w-full" size="sm">
+                  Subscribe to the Restoration log
+                </Button>
               </form>
             </div>
           </div>

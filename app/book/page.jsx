@@ -1,10 +1,12 @@
 import { ArrowRight, Check, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import EndorsementBanner from "../components/EndorsementBanner";
-import PageHero from "../components/PageHero";
-import SpotlightCard from "../components/ui/SpotlightCard";
-import WhoIsThisFor from "../components/WhoIsThisFor";
+import EndorsementBanner from "@/components/sections/EndorsementBanner";
+import PageHero from "@/components/layouts/PageHero";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import WhoIsThisFor from "@/components/sections/WhoIsThisFor";
+import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 
 export const metadata = {
   title: "The Book | Rest for the Restless",
@@ -16,7 +18,7 @@ export default function Book() {
     <div className="min-h-screen odd-sections-textured">
       <PageHero title="The Book" subtitle="Rest for the Restless" />
 
-      <section className="section-padding overflow-hidden relative" data-reveal>
+      <Reveal as="section" className="section-padding overflow-hidden relative">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none"
@@ -53,8 +55,8 @@ export default function Book() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="btn-primary">Buy on Amazon</button>
-                <button className="btn-outline">Buy from Publisher</button>
+                <Button>Buy on Amazon</Button>
+                <Button variant="outline">Buy from Publisher</Button>
               </div>
               <Link
                 href="/resources"
@@ -93,7 +95,7 @@ export default function Book() {
               <h3 className="text-xl font-serif text-charcoal-900 mb-6 border-b border-charcoal-200 pb-4">
                 Inside the Book
               </h3>
-              <p className="text-charcoal-500 italic mb-5">
+              <p className="text-charcoal-500 italic mb-6">
                 A gentle but practical guide, filled with:
               </p>
               <ul className="space-y-3">
@@ -144,7 +146,7 @@ export default function Book() {
                   ].map((tag, i) => (
                     <span
                       key={i}
-                      className="px-5 py-2 rounded-full bg-cream-50/70 border border-cream-400 text-charcoal-700 font-medium text-sm hover:border-earth-400 hover:bg-earth-100/50 transition-colors"
+                      className="px-6 py-2 rounded-full bg-cream-50/70 border border-cream-400 text-charcoal-700 font-medium text-sm hover:border-earth-400 hover:bg-earth-100/50 transition-colors"
                     >
                       {tag}
                     </span>
@@ -154,7 +156,7 @@ export default function Book() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       <EndorsementBanner
         eyebrow="Praise for the Book"

@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/ui/Button";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,12 +12,25 @@ export default function Navigation() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
+    let rafId = 0;
+
+    const commit = () => {
+      rafId = 0;
       const next = window.scrollY > 20;
       setScrolled((current) => (current === next ? current : next));
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    const handleScroll = () => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(commit);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId) window.cancelAnimationFrame(rafId);
+    };
   }, []);
 
   useEffect(() => {
@@ -43,7 +57,7 @@ export default function Navigation() {
     { name: "Resources", href: "/resources" },
     { name: "Speaking", href: "/speaking" },
     { name: "Coaching", href: "/coaching" },
-    { name: "Blog", href: "/blog" },
+    { name: "Restoration Log", href: "/blog" },
   ];
 
   const isActive = (href) => {
@@ -54,9 +68,9 @@ export default function Navigation() {
   return (
     <nav className="fixed inset-x-0 top-0 z-50">
       <div
-        className={`relative transition-[background-color,backdrop-filter,border-color,box-shadow,transform] duration-500 ${
+        className={`relative transition-[background-color,border-color,box-shadow,transform] duration-500 ${
           scrolled
-            ? "bg-cream-100/80 backdrop-blur-lg border-b border-charcoal-200/40 shadow-[0_12px_40px_rgba(15,14,13,0.08)]"
+            ? "bg-cream-100/90 border-b border-charcoal-200/40 shadow-[0_12px_40px_rgba(15,14,13,0.08)]"
             : "bg-transparent border-transparent"
         }`}
       >
@@ -110,13 +124,10 @@ export default function Navigation() {
             </div>
 
             <div className="hidden lg:block">
-              <Link
-                href="/book"
-                className="btn-primary text-xs py-3 px-6 gap-2"
-              >
+              <Button href="/book" size="sm">
                 Get the Book
                 <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
-              </Link>
+              </Button>
             </div>
 
             <div className="lg:hidden">
@@ -213,9 +224,9 @@ export default function Navigation() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-charcoal-200/40">
-                <Link
+                <Button
                   href="/book"
-                  className="btn-primary w-full text-center gap-2"
+                  className="w-full text-center"
                   onClick={() => setIsOpen(false)}
                 >
                   Get the Book
@@ -223,7 +234,7 @@ export default function Navigation() {
                     className="w-4 h-4 opacity-90"
                     aria-hidden="true"
                   />
-                </Link>
+                </Button>
               </div>
             </div>
           </div>

@@ -1,19 +1,20 @@
+import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 import { ArrowRight, Check } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-import SpotlightCard from "./ui/SpotlightCard";
 
 export default function HomeBookSection() {
   return (
-    <section
+    <Reveal
+      as="section"
       className="section-padding bg-cream-50 relative overflow-hidden"
-      data-reveal
     >
       <div className="absolute top-0 right-0 w-96 h-96 bg-earth-200/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none parallax-soft"></div>
       <div className="absolute inset-0 bg-mesh-warm opacity-60 pointer-events-none"></div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[35%_auto] gap-16 lg:gap-24 items-center">
           <div className="relative flex justify-center lg:justify-start group">
             <div className="relative w-56 sm:w-64 lg:w-72">
               <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[70%] h-6 bg-charcoal-900/10 blur-xl rounded-[100%]"></div>
@@ -72,24 +73,22 @@ export default function HomeBookSection() {
             </SpotlightCard>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link
-                href="/book"
-                className="btn-primary w-full sm:w-auto text-center gap-2"
-              >
+              <Button href="/book" className="w-full sm:w-auto text-center">
                 See What's Inside
                 <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
-              </Link>
-              <Link
+              </Button>
+              <Button
                 href="/resources"
-                className="btn-outline w-full sm:w-auto text-center gap-2"
+                variant="outline"
+                className="w-full sm:w-auto text-center"
               >
-                Free Chapter
+                join the Restoration log
                 <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
-              </Link>
+              </Button>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }

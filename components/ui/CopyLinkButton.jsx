@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Check, Link2 } from "lucide-react";
-import { cx } from "../../lib/cx";
+import { cx } from "@/lib/cx";
 
 export default function CopyLinkButton({
   className = "",

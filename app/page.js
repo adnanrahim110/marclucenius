@@ -1,10 +1,9 @@
-import EndorsementBanner from "./components/EndorsementBanner";
-import HeroSection from "./components/HeroSection";
-import HomeAuthorSection from "./components/HomeAuthorSection";
-import HomeBookSection from "./components/HomeBookSection";
-import HomeExtraSections from "./components/HomeExtraSections";
-import HomeReviewsSection from "./components/HomeReviewsSection";
-import InfoGrid from "./components/InfoGrid";
+import HeroSection from "@/components/home/HeroSection";
+import HomeAuthorSection from "@/components/home/HomeAuthorSection";
+import HomeBookSection from "@/components/home/HomeBookSection";
+import HomeReviewsSection from "@/components/home/HomeReviewsSection";
+import InfoGrid from "@/components/home/InfoGrid";
+import EndorsementBanner from "@/components/sections/EndorsementBanner";
 
 export const metadata = {
   title: "Marc Lucenius | Author & Pastor",
@@ -19,8 +18,7 @@ export default function Home() {
       <HomeBookSection />
       <EndorsementBanner />
       <HomeAuthorSection />
-      <HomeReviewsSection />
-      <HomeExtraSections />
+      {/* <HomeReviewsSection /> */}
       <InfoGrid />
     </div>
   );

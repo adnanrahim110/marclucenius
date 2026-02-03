@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import PageHero from "../../components/PageHero";
-import SpotlightCard from "../../components/ui/SpotlightCard";
-import ReadingProgress from "../../components/ui/ReadingProgress";
-import CopyLinkButton from "../../components/ui/CopyLinkButton";
+import PageHero from "@/components/layouts/PageHero";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import ReadingProgress from "@/components/ui/ReadingProgress";
+import CopyLinkButton from "@/components/ui/CopyLinkButton";
+import BlogCard from "@/components/blog/BlogCard";
 import { BLOGS, getBlogBySlug } from "@/content/blogs";
 import {
   ArrowLeft,
@@ -121,9 +122,10 @@ export default async function BlogPost({ params }) {
   const highlightList = post.blocks.find((block) => block.type === "ul" || block.type === "ol") ?? null;
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-x-hidden">
       <ReadingProgress />
       <PageHero
+        headingAs="h2"
         title="Journal"
         subtitle={post.category}
         className="min-h-[50vh] no-parallax"
@@ -144,7 +146,7 @@ export default async function BlogPost({ params }) {
                 className="absolute inset-0 bg-linear-to-b from-cream-50/0 via-cream-50/70 to-cream-50"
               />
 
-              <div className="relative p-7 sm:p-10">
+              <div className="relative p-8 sm:p-10">
                 <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between mb-10">
                   <Link
                     href="/blog"
@@ -197,14 +199,14 @@ export default async function BlogPost({ params }) {
                 {previous ? (
                   <Link href={`/blog/${previous.slug}`} className="group block h-full">
                     <SpotlightCard className="h-full !rounded-2xl border-cream-300/70 bg-cream-50/70 shadow-none hover:shadow-2xl hover:shadow-charcoal-900/10 hover:border-earth-500/40">
-                      <div className="p-7 flex flex-col h-full">
+                      <div className="p-8 flex flex-col h-full">
                         <p className="text-[11px] uppercase tracking-widest text-charcoal-400 mb-3 font-semibold">
                           Previous
                         </p>
-                        <h3 className="text-lg font-serif text-charcoal-900 mb-3 group-hover:text-earth-700 transition-colors leading-snug">
+                        <h3 className="text-lg font-serif text-charcoal-900 mb-3 group-hover:text-earth-700 transition-colors leading-snug line-clamp-2">
                           {previous.title}
                         </h3>
-                        <p className="text-charcoal-600 text-sm leading-relaxed mb-6 grow font-light">
+                        <p className="text-charcoal-600 text-sm leading-relaxed mb-6 grow font-light line-clamp-3">
                           {previous.excerpt}
                         </p>
                         <div className="inline-flex items-center gap-2 text-earth-700 text-xs font-semibold uppercase tracking-widest group-hover:-translate-x-1 transition-transform duration-300">
@@ -221,14 +223,14 @@ export default async function BlogPost({ params }) {
                 {next ? (
                   <Link href={`/blog/${next.slug}`} className="group block h-full">
                     <SpotlightCard className="h-full !rounded-2xl border-cream-300/70 bg-cream-50/70 shadow-none hover:shadow-2xl hover:shadow-charcoal-900/10 hover:border-earth-500/40">
-                      <div className="p-7 flex flex-col h-full">
+                      <div className="p-8 flex flex-col h-full">
                         <p className="text-[11px] uppercase tracking-widest text-charcoal-400 mb-3 font-semibold">
                           Next
                         </p>
-                        <h3 className="text-lg font-serif text-charcoal-900 mb-3 group-hover:text-earth-700 transition-colors leading-snug">
+                        <h3 className="text-lg font-serif text-charcoal-900 mb-3 group-hover:text-earth-700 transition-colors leading-snug line-clamp-2">
                           {next.title}
                         </h3>
-                        <p className="text-charcoal-600 text-sm leading-relaxed mb-6 grow font-light">
+                        <p className="text-charcoal-600 text-sm leading-relaxed mb-6 grow font-light line-clamp-3">
                           {next.excerpt}
                         </p>
                         <div className="inline-flex items-center gap-2 text-earth-700 text-xs font-semibold uppercase tracking-widest group-hover:translate-x-1 transition-transform duration-300">
@@ -251,32 +253,7 @@ export default async function BlogPost({ params }) {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {related.map((item) => (
-                    <Link key={item.id} href={`/blog/${item.slug}`} className="group block h-full">
-                      <SpotlightCard className="h-full !rounded-2xl border-cream-300/70 bg-cream-50/70 shadow-none hover:shadow-2xl hover:shadow-charcoal-900/10 hover:border-earth-500/40">
-                        <div className="p-7 flex flex-col h-full">
-                          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] uppercase tracking-widest mb-4">
-                            <span className="inline-flex items-center gap-2 text-earth-700 font-semibold">
-                              <Tag className="w-3.5 h-3.5 text-earth-600" aria-hidden="true" />
-                              {item.category}
-                            </span>
-                            <span className="inline-flex items-center gap-2 text-charcoal-400">
-                              <Clock3 className="w-3.5 h-3.5 text-charcoal-400" aria-hidden="true" />
-                              {item.readingTime}
-                            </span>
-                          </div>
-                          <h3 className="text-lg font-serif text-charcoal-900 mb-3 group-hover:text-earth-700 transition-colors leading-snug">
-                            {item.title}
-                          </h3>
-                          <p className="text-charcoal-600 text-sm leading-relaxed mb-6 grow font-light">
-                            {item.excerpt}
-                          </p>
-                          <div className="flex items-center text-earth-700 text-xs font-semibold uppercase tracking-widest group-hover:translate-x-1 transition-transform duration-300">
-                            Read Article
-                            <ArrowRight className="h-4 w-4 ml-2" aria-hidden="true" />
-                          </div>
-                        </div>
-                      </SpotlightCard>
-                    </Link>
+                    <BlogCard key={item.id} post={item} variant="compact" />
                   ))}
                 </div>
               </section>
@@ -287,8 +264,8 @@ export default async function BlogPost({ params }) {
             <div className="sticky top-32 space-y-6">
               {toc.length > 0 && (
                 <div className="paper-card !rounded-2xl">
-                  <div className="p-7">
-                    <h3 className="text-xs font-bold uppercase tracking-widest text-charcoal-500 mb-5">
+                  <div className="p-8">
+                    <h3 className="text-xs font-bold uppercase tracking-widest text-charcoal-500 mb-6">
                       On This Page
                     </h3>
                     <nav aria-label="Table of contents">
@@ -312,8 +289,8 @@ export default async function BlogPost({ params }) {
 
               {(highlightQuote || highlightList) && (
                 <div className="paper-card !rounded-2xl">
-                  <div className="p-7">
-                    <h3 className="text-xs font-bold uppercase tracking-widest text-charcoal-500 mb-5 flex items-center gap-2">
+                  <div className="p-8">
+                    <h3 className="text-xs font-bold uppercase tracking-widest text-charcoal-500 mb-6 flex items-center gap-2">
                       <Quote className="w-4 h-4 text-earth-600" aria-hidden="true" />
                       Highlight
                     </h3>
@@ -337,13 +314,13 @@ export default async function BlogPost({ params }) {
               )}
 
               <div className="paper-card !rounded-2xl">
-                <div className="p-7">
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-charcoal-500 mb-5 flex items-center gap-2">
+                <div className="p-8">
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-charcoal-500 mb-6 flex items-center gap-2">
                     <UserRound className="w-4 h-4 text-earth-600" aria-hidden="true" />
                     About The Author
                   </h3>
 
-                  <div className="flex items-center gap-4 mb-5">
+                  <div className="flex items-center gap-4 mb-6">
                     <div className="relative h-12 w-12 rounded-full overflow-hidden border border-cream-300/70">
                       <Image
                         src="/imgs/author2.jpg"

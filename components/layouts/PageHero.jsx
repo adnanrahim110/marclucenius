@@ -1,5 +1,10 @@
-import React from "react";
-import { cx } from "../lib/cx";
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { cx } from "@/lib/cx";
+import Container from "@/components/ui/Container";
+
+const EASE_OUT = [0.22, 1, 0.36, 1];
 
 export default function PageHero({
   title,
@@ -7,66 +12,103 @@ export default function PageHero({
   tone = "light",
   className = "",
   bg,
+  headingAs = "h1",
 }) {
   const isDark = tone === "dark";
+  const reduceMotion = useReducedMotion();
+
+  const item = {
+    hidden: reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 },
+    show: { opacity: 1, y: 0 },
+  };
+
+  const transition = (delay) =>
+    reduceMotion ? { duration: 0 } : { duration: 0.85, ease: EASE_OUT, delay };
+
+  const Heading = motion?.[headingAs] ?? motion.h1;
 
   return (
     <section
-      className={`relative py-20 lg:py-28 overflow-hidden ${isDark ? "bg-primary-950" : "bg-cream-200"} ${className}`}
+      className={cx(
+        "relative overflow-hidden py-20 lg:py-28",
+        isDark ? "bg-primary-950" : "bg-cream-200",
+        className,
+      )}
     >
-      {bg && (
+      {bg ? (
         <div
           className={cx(
             "absolute inset-0 z-5 pointer-events-none bg-cover bg-center bg-no-repeat",
             bg,
           )}
         />
-      )}
+      ) : null}
       <div
-        className={`absolute inset-0 z-6 pointer-events-none ${
-          isDark ? "bg-mesh-ink opacity-90" : "bg-paper opacity-70"
-        }`}
+        aria-hidden="true"
+        className={cx(
+          "pointer-events-none absolute inset-0 z-6",
+          isDark ? "bg-mesh-ink opacity-90" : "bg-paper opacity-70",
+        )}
       />
       <div
-        className={`absolute -inset-10 z-6 pointer-events-none parallax-soft ${
+        aria-hidden="true"
+        className={cx(
+          "pointer-events-none absolute -inset-10 z-6 parallax-soft",
           isDark
             ? "bg-[radial-gradient(900px_500px_at_50%_0%,rgba(168,138,91,0.20),transparent_60%)] opacity-90"
-            : "bg-mesh-warm opacity-70"
-        }`}
+            : "bg-mesh-warm opacity-70",
+        )}
       />
       <div
-        className={`absolute inset-0 z-6 pointer-events-none ${
+        aria-hidden="true"
+        className={cx(
+          "pointer-events-none absolute inset-0 z-6",
           isDark
             ? "bg-linear-to-b from-primary-950/10 via-primary-950/40 to-primary-950 opacity-100"
-            : "bg-linear-to-b from-cream-200/30 via-transparent to-transparent opacity-100"
-        }`}
+            : "bg-linear-to-b from-cream-200/30 via-transparent to-transparent opacity-100",
+        )}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        {subtitle && (
-          <p
-            className={`font-script text-2xl md:text-3xl mb-3 transform -rotate-1 animate-fade-in-up ${
-              isDark ? "text-accent-300" : "text-earth-500"
-            }`}
+      <Container size="4xl" pad className="relative z-10 text-center">
+        {subtitle ? (
+          <motion.p
+            variants={item}
+            initial="hidden"
+            animate="show"
+            transition={transition(0)}
+            className={cx(
+              "font-script mb-3 -rotate-1 text-2xl md:text-3xl",
+              isDark ? "text-accent-300" : "text-earth-500",
+            )}
           >
             {subtitle}
-          </p>
-        )}
-        <h1
-          className={`text-4xl md:text-6xl font-serif font-semibold tracking-tight animate-fade-in-up ${
-            isDark ? "text-cream-100" : "text-charcoal-900"
-          }`}
-          style={{ animationDelay: "0.15s" }}
+          </motion.p>
+        ) : null}
+
+        <Heading
+          variants={item}
+          initial="hidden"
+          animate="show"
+          transition={transition(0.12)}
+          className={cx(
+            "text-4xl md:text-6xl font-serif font-semibold tracking-tight",
+            isDark ? "text-cream-100" : "text-charcoal-900",
+          )}
         >
           {title}
-        </h1>
-        <div
-          className={`mt-6 w-16 h-1 mx-auto rounded-full animate-fade-in-up ${
-            isDark ? "bg-accent-500" : "bg-earth-400"
-          }`}
-          style={{ animationDelay: "0.3s" }}
-        ></div>
-      </div>
+        </Heading>
+
+        <motion.div
+          variants={item}
+          initial="hidden"
+          animate="show"
+          transition={transition(0.24)}
+          className={cx(
+            "mt-6 mx-auto h-1 w-16 rounded-full",
+            isDark ? "bg-accent-500" : "bg-earth-400",
+          )}
+        />
+      </Container>
     </section>
   );
 }

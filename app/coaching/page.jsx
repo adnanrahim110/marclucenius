@@ -1,7 +1,9 @@
 import { ArrowRight, Check, Sparkles } from "lucide-react";
 import Link from "next/link";
-import PageHero from "../components/PageHero";
-import SpotlightCard from "../components/ui/SpotlightCard";
+import PageHero from "@/components/layouts/PageHero";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 
 export const metadata = {
   title: "Coaching | Rest for the Restless",
@@ -13,7 +15,7 @@ export default function Coaching() {
     <div className="min-h-screen">
       <PageHero title="Coaching" subtitle="Work with Marc" />
 
-      <section className="section-padding relative" data-reveal>
+      <Reveal as="section" className="section-padding relative">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-mesh-warm opacity-50 pointer-events-none"
@@ -54,10 +56,10 @@ export default function Coaching() {
                 </li>
               ))}
             </ul>
-            <button className="btn-outline w-full gap-2">
+            <Button variant="outline" className="w-full">
               Inquire
               <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
-            </button>
+            </Button>
           </SpotlightCard>
 
           <SpotlightCard className="p-8 flex flex-col border-2 border-earth-400/70 relative">
@@ -95,10 +97,10 @@ export default function Coaching() {
                 />
                 Cohort experience + community
               </p>
-              <button className="btn-primary w-full gap-2">
+              <Button className="w-full">
                 Inquire
                 <ArrowRight className="w-4 h-4 opacity-90" aria-hidden="true" />
-              </button>
+              </Button>
             </div>
           </SpotlightCard>
         </div>
@@ -115,7 +117,7 @@ export default function Coaching() {
             to discuss your needs.
           </p>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 }
